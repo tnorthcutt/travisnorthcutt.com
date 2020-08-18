@@ -1,0 +1,22 @@
+module.exports = {
+  purge: [],
+  theme: {
+    extend: {},
+    minHeight: {
+      "0": "0",
+      "2": "0.5rem",
+      "4": "1rem",
+      "8": "2rem",
+      "12": "3rem",
+      "20": "5rem",
+      "32": "8rem",
+      "40": "10rem",
+      full: "100%",
+    },
+  },
+  variants: {
+    borderWidth: ["responsive", "hover", "focus"],
+  },
+  plugins: [require("@tailwindcss/ui"), require("@tailwindcss/typography")],
+  important: true,
+};

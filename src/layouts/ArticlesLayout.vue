@@ -35,7 +35,7 @@
       </nav>
 
       <main>
-        <div class="mx-auto py-6 sm:px-6 lg:px-8 prose">
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 prose">
           <!-- Replace with your content -->
           <slot />
           <!-- /End replace -->
