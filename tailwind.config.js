@@ -1,6 +1,17 @@
 module.exports = {
   purge: [],
   theme: {
+    typography: theme => ({
+      default: {
+        css: {
+          a: {
+            "&:hover": {
+              color: theme("colors.gray.900"),
+            },
+          },
+        },
+      },
+    }),
     extend: {},
     minHeight: {
       "0": "0",
@@ -19,4 +30,14 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/ui"), require("@tailwindcss/typography")],
   important: true,
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+  experimental: {
+    applyComplexClasses: true,
+    defaultLineHeights: true,
+    extendedFontSizeScale: true,
+    extendedSpacingScale: true,
+    uniformColorPalette: true,
+  },
 };

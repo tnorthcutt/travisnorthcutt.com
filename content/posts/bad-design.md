@@ -13,7 +13,9 @@ The key quote:
 
 Here's the thing: if you send someone an email – even if it "expires" after a set amount of time, or gmail somehow prevents them from copying/downloading/printing text and/or images from it, **they can still share it.** All they have to do is take a screenshot – or a literal picture with, say, their phone – and share that.
 
-\[caption id="attachment\_535" align="alignnone" width="700"\]![Picture of this post](images/screen-pic-1024x768.jpg) Look, I took a picture with my phone. This isn't hard.\[/caption\]
+![Picture of this post](./images/screen-pic.jpg)
+
+_Look, I took a picture with my phone. This isn't hard._
 
 Sure, this has some utility. For instance, you could share a password with someone with an "expiring" email, and be sure (not that I'd trust Google to actually delete anything...)  it won't be sitting in their email inbox forever, just waiting for a future hacker to come along and find it.
 

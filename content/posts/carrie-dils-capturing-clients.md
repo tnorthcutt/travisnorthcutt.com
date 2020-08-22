@@ -9,7 +9,7 @@ date: "2013-06-18"
 
 ### How building good relationships will build your business
 
-Not talking about: literally capturing clients (illegal) micro details (invoicing, etc.) We ARE talking about: God habits for maintaining great relationships with your clients The Goal: Pass on a useful nugget: leave today with a Monday morning action to take Agenda: 1. Finding clients 2. Setting the stage 3. Creating a love fest 4. Recovering from a bad situation (just in case!) [![Carrie Dils](images/photo-300x235.jpg)](http://travisnorthcutt.com/wp-content/uploads/2013/06/photo.jpg)
+Not talking about: literally capturing clients (illegal) micro details (invoicing, etc.) We ARE talking about: God habits for maintaining great relationships with your clients The Goal: Pass on a useful nugget: leave today with a Monday morning action to take Agenda: 1. Finding clients 2. Setting the stage 3. Creating a love fest 4. Recovering from a bad situation (just in case!) ![Carrie Dils](./images/carrie-dils.jpg)
 
 ### Finding Clients:
 
@@ -104,6 +104,6 @@ We want the right kind
 Own your mistakes - if you did something wrong, admit it, and then:
 
 - Make it right
-- Give a peace offering (a high-value to your customer, minimal cost to you add-on) - E.g. if you took too long on a project and your client is upset, offer them 3 months of free maintenance, where you would normally charge $100/month for that.
+- Give a peace offering (a high-value to your customer, minimal cost to you add-on) - E.g. if you took too long on a project and your client is upset, offer them 3 months of free maintenance, where you would normally charge \$100/month for that.
 
 \----- Carrie, thanks for providing advice that's actionable! My biggest takeaway was the idea of sending yearly hand-written thank you notes to clients. This is so obvious, and something I've heard of before, but not something I've done. What's your biggest takeaway?

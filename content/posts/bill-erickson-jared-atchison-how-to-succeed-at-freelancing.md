@@ -10,10 +10,9 @@ Bill Erickson and Jared Atchison gave a great talk on how they run their freelan
 Jared: Started off just working evenings, scheduled meetings during lunch, etc. Eventually switched to working his job half time as client work picked up and he had some clients bringing him repeat business. Networking is super important: going to WordCamps and networking with people has been a huge factor in growing his business.
 
 > One of the big things that put me in a position to be able to go full time was going to WordCamps and meeting people.
-> 
-> \[caption id="attachment\_231" align="aligncenter" width="300"\][![Bill Erickson and Jared Atchison](images/billandjared-300x225.jpg)](http://travisnorthcutt.com/wp-content/uploads/2013/05/billandjared.jpg) The Beard speaks!\[/caption\]
-
-Bill: There is still more work than most developers can handle. If you're just starting out, build relationships with accomplished designers and developers. The good ones are in high demand and are always looking for other people to send business to.
+>
+> ![Bill Erickson and Jared Atchison](./images/billandjared.jpg)
+> Bill: There is still more work than most developers can handle. If you're just starting out, build relationships with accomplished designers and developers. The good ones are in high demand and are always looking for other people to send business to.
 
 Find a niche that you can target (Genesis, bbPress, WooCommerce, etc.), and specialize in that. Become the go-to person for that niche. This way, other freelancers will send you inquiries they get in that niche.
 
@@ -21,7 +20,7 @@ Find a niche that you can target (Genesis, bbPress, WooCommerce, etc.), and spec
 
 Bill: As you grow, some stuff (like communication) becomes a problem. A 1 hour phone call always takes 1 hour, so reduce the number of 1 hour phone calls you have to take per client.
 
-He can re-use code all day long, but can't re-use one-on-one communication, so he uses his website to weed people out. He puts pricing and timeline information front and center, so people who want a $100 website never even call him. Same thing with timeline/availability: he shows what date he's currently scheduling projects for, so people won't contact him if he can't help them with their urgent project.
+He can re-use code all day long, but can't re-use one-on-one communication, so he uses his website to weed people out. He puts pricing and timeline information front and center, so people who want a \$100 website never even call him. Same thing with timeline/availability: he shows what date he's currently scheduling projects for, so people won't contact him if he can't help them with their urgent project.
 
 He also has canned responses for once people do contact him. He customizes them for each client based on what they say.
 
@@ -59,7 +58,7 @@ Bill gives them a list of designers. He doesn't suggest just one, so if they hav
 
 ### Pricing structure:
 
-Bill: I do value based pricing. I charge what I think is a reasonable rate for a site (base level), up from there is based on time. Starts at e.g. $2500 and goes up from there based on custom features.
+Bill: I do value based pricing. I charge what I think is a reasonable rate for a site (base level), up from there is based on time. Starts at e.g. \$2500 and goes up from there based on custom features.
 
 Bill makes data-based decisions. He logs everything on each project: revenue, expenses, time spent. Then from there, he sorts by effective hourly rate, and figures out what the highest dollar per hour projects have in common. He discovered the smaller sites are better for him, because more of the work is reused (because there's not a lot of custom stuff), whereas the bigger projects he was spending way more time per dollar on, since it was lots of new/custom work.
 
@@ -99,7 +98,7 @@ Bill sets the payment terms to align interests: if payment is tied to launch and
 
 Jared: when I send out a contract, I tell you my availability as of \*now\*, but you don't get on my schedule until you pay the initial deposit.
 
-Some people put an "inactive" clause in the contract: if the client disappears for x days, the project goes inactive. Then it takes e.g. $300 to get the project restarted. Also, if a project goes inactive, then they get put at the end of the line, so they can't just show up and demand you do something right away.
+Some people put an "inactive" clause in the contract: if the client disappears for x days, the project goes inactive. Then it takes e.g. \$300 to get the project restarted. Also, if a project goes inactive, then they get put at the end of the line, so they can't just show up and demand you do something right away.
 
 ### What about staging sites?
 

@@ -21,6 +21,23 @@ module.exports = {
       options: {
         typeName: "Post",
         path: "./content/posts/**/*.md",
+        remark: {
+          plugins: [
+            [
+              "@noxify/gridsome-plugin-remark-embed",
+              {
+                enabledProviders: ["Youtube", "Twitter", "Gist"],
+                Twitter: {
+                  omitScript: true,
+                  template: "./src/providerTemplates/Twitter.hbs",
+                },
+                Gist: {
+                  omitStylesheet: false,
+                },
+              },
+            ],
+          ],
+        },
       },
     },
   ],

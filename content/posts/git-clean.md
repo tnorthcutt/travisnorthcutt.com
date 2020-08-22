@@ -7,7 +7,7 @@ icon: "technical"
 
 Thanks to [Josh Eaton](http://www.josheaton.org/), I recently discovered `[git clean](http://git-scm.com/docs/git-clean)`. This command came up because I had somehow created a rogue file in the root directory of a site I was working on (I'm not even sure how it got there), but couldn't figure out how to delete it, due to its odd name:
 
-![](images/2014-01-02-at-2.09-PM.png)
+![](./images/git-clean.png)
 
 Josh helpfully suggested that I try using `git clean`, which worked!
 

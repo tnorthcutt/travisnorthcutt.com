@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <g-link :to="post.path">
+    <g-link class="no-underline" :to="post.path">
       <div
         class="min-h-32 max-w-sm rounded overflow-hidden hover:border-t-2 hover:border-teal-500 shadow hover:shadow-lg"
       >

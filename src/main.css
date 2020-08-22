@@ -2,4 +2,16 @@
 
 @tailwind components;
 
+.twitter-embed {
+  @apply border-solid border rounded p-4;
+}
+
+.twitter-embed blockquote {
+  @apply border-none font-normal not-italic my-0;
+}
+
+.gist-embed tbody tr {
+  @apply border-none;
+}
+
 @tailwind utilities;
