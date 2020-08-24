@@ -2,7 +2,6 @@
 title: "Advice to a new freelancer"
 slug: "advice-to-a-new-freelancer"
 date: "2014-05-16"
-icon: "business"
 ---
 
 > _December 2015 update: I wrote a book on freelancing/consulting with my mastermind group. [Learn more about that here.](http://travisnorthcutt.com/buy-our-book/)_

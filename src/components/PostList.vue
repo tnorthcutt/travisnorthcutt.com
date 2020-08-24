@@ -6,7 +6,6 @@
       >
         <div class="px-6 py-4">
           <h3 class="text-2xl mt-0 mb-2 font-normal" v-html="post.title" />
-          <div class="mt-8 text-right">{{ icon }}</div>
         </div>
       </div>
     </g-link>
@@ -21,23 +20,6 @@ export default {
     ReadMore,
   },
   props: ["post"],
-  computed: {
-    icon() {
-      if (!this.post.icon) {
-        return "";
-      }
-      switch (this.post.icon) {
-        case "technical":
-          return "💻";
-          break;
-        case "business":
-          return "💸";
-          break;
-        case "misc":
-          return "🤷‍♂️";
-          break;
-      }
-    },
-  },
+  computed: {},
 };
 </script>

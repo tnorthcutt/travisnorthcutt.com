@@ -2,7 +2,6 @@
 title: "3 systems you can set up to grow your business in 2014"
 slug: "3-systems-you-can-set-up-to-grow-your-business-in-2014"
 date: "2014-01-03"
-icon: "business"
 ---
 
 > _December 2015 update: I wrote a book on freelancing/consulting with my mastermind group. [Learn more about that here.](http://travisnorthcutt.com/buy-our-book/)_

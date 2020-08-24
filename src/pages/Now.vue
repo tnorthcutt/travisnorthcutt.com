@@ -2,8 +2,7 @@
   <Layout :title="title">
     <h1>Now</h1>
     <h2>
-      This page is the most up to date snapshot of what I’m up to, since my
-      personal site is oft-neglected.
+      This page is the most up to date snapshot of what I’m up to.
     </h2>
 
     <h3>April 2020 update, pandemic edition:</h3>
@@ -119,17 +118,5 @@
 </template>
 
 <script>
-export default {
-  metaInfo: {
-    title: "About us",
-  },
-  data() {
-    return {
-      title: "About",
-    };
-  },
-  mounted() {
-    console.log(this);
-  },
-};
+export default {};
 </script>

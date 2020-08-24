@@ -14,4 +14,8 @@
   @apply border-none;
 }
 
+.active--exact.active {
+  @apply bg-gray-700 text-white;
+}
+
 @tailwind utilities;

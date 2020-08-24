@@ -1,36 +1,47 @@
 <template>
-  <Layout>
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-      excepturi labore tempore expedita, et iste tenetur suscipit explicabo!
-      Dolores, aperiam non officia eos quod asperiores
+  <ArticlesLayout>
+    <h1 class="">Stuff I've written</h1>
+    <p class="italic mb-12">
+      N.B. Some of these articles are rather old! But, for now I'm keeping them
+      published here in the hopes they'll be useful to someone.
     </p>
-
-    <p class="">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener"
-        >Gridsome Docs</a
-      >
-      <a
-        href="https://github.com/gridsome/gridsome"
-        target="_blank"
-        rel="noopener"
-        >GitHub</a
-      >
-    </p>
-  </Layout>
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 row-gap-10"
+    >
+      <PostList
+        v-for="edge in $page.allPost.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
+    </section>
+  </ArticlesLayout>
 </template>
 
 <script>
+import PostList from "@/components/PostList";
 export default {
-  metaInfo: {
-    title: "Hello, world!",
+  components: {
+    PostList,
   },
 };
 </script>
 
-<style></style>
+<page-query>
+query {
+  metadata {
+    siteName
+    siteDescription
+  }
+  allPost {
+    totalCount
+    edges {
+      node {
+        id
+        title
+        path
+      }
+    }
+
+  }
+}
+</page-query>

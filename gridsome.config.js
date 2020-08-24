@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production")
   postcssPlugins.push(purgecss(require("./purgecss.config.js")));
 
 module.exports = {
-  siteName: "Gridsome",
+  siteName: "Travis Northcutt",
   icon: "<text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>",
   plugins: [
     {

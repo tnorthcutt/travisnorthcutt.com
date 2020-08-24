@@ -2,7 +2,6 @@
 title: "Git clean"
 slug: "git-clean"
 date: "2014-01-03"
-icon: "technical"
 ---
 
 Thanks to [Josh Eaton](http://www.josheaton.org/), I recently discovered `[git clean](http://git-scm.com/docs/git-clean)`. This command came up because I had somehow created a rogue file in the root directory of a site I was working on (I'm not even sure how it got there), but couldn't figure out how to delete it, due to its odd name:

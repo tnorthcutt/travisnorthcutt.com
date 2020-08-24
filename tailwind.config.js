@@ -27,6 +27,7 @@ module.exports = {
   },
   variants: {
     borderWidth: ["responsive", "hover", "focus"],
+    fontSize: ["responsive", "hover", "focus"],
   },
   plugins: [require("@tailwindcss/ui"), require("@tailwindcss/typography")],
   important: true,

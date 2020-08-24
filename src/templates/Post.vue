@@ -12,7 +12,6 @@ query ($id: ID!) {
   post(id: $id) {
     title
     content
-    icon
   }
 }
 </page-query>

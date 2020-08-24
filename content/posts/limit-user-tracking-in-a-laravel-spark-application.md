@@ -2,7 +2,6 @@
 title: "Limit user tracking in a Laravel Spark application"
 slug: "limit-user-tracking-in-a-laravel-spark-application"
 date: "2018-12-10"
-icon: "technical"
 ---
 
 [Laravel Spark](https://spark.laravel.com/) comes with a really handy feature: user impersonation. The "kiosk" allows you to search for users of your application, and click a button to sign in as that user. This is great for things like white-glove onboarding, recording screencasts for a user to show them a feature, etc.
