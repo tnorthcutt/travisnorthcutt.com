@@ -40,9 +40,20 @@ module.exports = {
         },
       },
     },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        typeName: "Page",
+        path: "./content/pages/**/*.md",
+        remark: {
+          plugins: [],
+        },
+      },
+    },
   ],
   templates: {
     Post: "/:slug",
+    Page: "/:slug",
   },
   css: {
     loaderOptions: {
