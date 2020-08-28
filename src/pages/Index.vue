@@ -29,7 +29,6 @@ export default {
       if (hour < 12) {
         return "Good morning!";
       } else if (12 <= hour && hour < 17) {
-        console.log("here");
         return "Good afternoon";
       } else if (17 <= hour && hour < 20) {
         return "Good evening";
