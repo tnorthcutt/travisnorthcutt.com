@@ -11,6 +11,11 @@
                 >Home</g-link
               >
               <g-link
+                to="/articles"
+                class="px-3 py-2 rounded-md text-sm font-medium hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+                >Articles</g-link
+              >
+              <g-link
                 to="/hire-me"
                 class="px-3 py-2 rounded-md text-sm font-medium hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                 >Work with me</g-link
