@@ -8,7 +8,7 @@
         <a href="https://laravel.com">Laravel</a>. If you need help with things
         like that, you should <g-link to="/hire-me" class="">hire me</g-link>.
       </p>
-      <p>
+      <p class="text-2xl leading-relaxed">
         You can find me on <a href="https://twitter.com/tnorthcutt">Twitter</a>,
         <a href="https://github.com/tnorthcutt">GitHub</a>, and
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">LinkedIn</a>.
@@ -29,11 +29,11 @@ export default {
       if (hour < 12) {
         return "Good morning!";
       } else if (12 <= hour && hour < 17) {
-        return "Good afternoon";
+        return "Good afternoon!";
       } else if (17 <= hour && hour < 20) {
-        return "Good evening";
+        return "Good evening!";
       } else {
-        return "Good night.";
+        return "Good night!";
       }
     },
   },
