@@ -1,6 +1,6 @@
 <template>
   <ArticlesLayout>
-    <div class="max-w-4xl mx-auto mt-16">
+    <div class="max-w-4xl mx-auto mt-8 md:mt-16">
       <h1 class="text-6xl font-normal">{{ greeting }}</h1>
       <p class="text-2xl leading-relaxed">
         I'm Travis Northcutt. I write code – mostly
@@ -18,10 +18,9 @@
 </template>
 
 <script>
-import PostList from "@/components/PostList";
 export default {
-  components: {
-    PostList,
+  metaInfo: {
+    title: "Home",
   },
   computed: {
     greeting() {
@@ -45,12 +44,3 @@ p a {
   @apply no-underline bg-yellow-100 bg-gradient-to-r hover:from-yellow-200 hover:to-orange-400;
 }
 </style>
-
-<page-query>
-query {
-  metadata {
-    siteName
-    siteDescription
-  }
-}
-</page-query>

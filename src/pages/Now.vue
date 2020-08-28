@@ -118,5 +118,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: "/now",
+  },
+};
 </script>
