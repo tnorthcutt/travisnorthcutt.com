@@ -7,6 +7,7 @@ require("~/main.css");
 import DefaultLayout from "~/layouts/Default.vue";
 import ArticlesLayout from "~/layouts/ArticlesLayout.vue";
 import NavMenu from "~/components/Nav.vue";
+import CommitHistory from "~/components/CommitHistory.vue";
 
 export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -14,4 +15,5 @@ export default function(Vue, { router, head, isClient }) {
   Vue.component("ArticlesLayout", ArticlesLayout);
 
   Vue.component("NavMenu", NavMenu);
+  Vue.component("CommitHistory", CommitHistory);
 }
