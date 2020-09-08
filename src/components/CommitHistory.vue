@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import fetch from "node-fetch";
+
 export default {
   components: {},
   props: ["path"],
