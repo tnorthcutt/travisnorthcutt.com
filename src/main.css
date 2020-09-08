@@ -15,7 +15,11 @@
 }
 
 .active--exact.active {
-  @apply bg-gray-700 text-white;
+  @apply bg-gray-700 text-white !important;
+}
+
+.prose a {
+  @apply hover:no-underline bg-gradient-to-r hover:from-yellow-200 hover:to-orange-400;
 }
 
 @tailwind utilities;
