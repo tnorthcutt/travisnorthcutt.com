@@ -16,14 +16,12 @@ export default {
   },
   computed: {
     path() {
-      const base =
-        "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commits?path=/";
-      const file =
+      return (
         this.$page.post.fileInfo.directory.replace("./", "") +
         "/" +
         this.$page.post.fileInfo.name +
-        this.$page.post.fileInfo.extension;
-      return base + file;
+        this.$page.post.fileInfo.extension
+      );
     },
   },
 };
