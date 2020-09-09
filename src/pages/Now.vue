@@ -5,6 +5,33 @@
       This page is the most up to date snapshot of what I’m up to.
     </h2>
 
+    <h3>
+      September 2020 update,
+      <span class="italic">still in a pandemic</span> edition:
+    </h3>
+    <p>
+      I'm still doing contract development (Laravel + VueJS) work, though I've
+      pared that down a bit so that I can homeschool Kyle this year. So far
+      that's going well, and we're both enjoying it. Keeping up with core
+      subjects is fairly straightforward, and from there we're just diving into
+      whatever Kyle's most interested in. So far that includes castles, science
+      experiments, coding (especially games), and more. And we're just getting
+      started.
+    </p>
+    <p>
+      Amanda is kicking ass in the work department; she's currently the interim
+      Chief Revenue Officer for a niche SaaS company, and things are in motion
+      for her to potentially move into even more of a leadership role there. She
+      is insanely good at business and strategic thinking and it's very fun to
+      watch her thrive right now.
+    </p>
+    <p>
+      We are "bubbling" with one other family right now, and will likely bring
+      another family into that bubble soon. This is a recent development, and
+      it's been great. Highly recommended if you're both very careful about
+      covid for whatever reason, and have kids (or even if you don't!).
+    </p>
+
     <h3>April 2020 update, pandemic edition:</h3>
     <p>
       Work: I am currently doing contract development for a few clients, mostly
@@ -114,6 +141,7 @@
       >
       for /now inspiration.
     </p>
+    <CommitHistory path="src/pages/Now.vue" />
   </Layout>
 </template>
 
