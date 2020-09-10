@@ -9,6 +9,7 @@ module.exports = {
               color: theme("colors.gray.900"),
             },
           },
+          maxWidth: "75ch",
         },
       },
     }),
