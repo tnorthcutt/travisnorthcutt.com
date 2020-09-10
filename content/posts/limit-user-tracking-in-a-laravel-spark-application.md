@@ -10,8 +10,6 @@ It's quite common to use something like Intercom, FullStory, etc. to track users
 
 I wanted a way to avoid this problem, and after some digging, I discovered that Spark sets a `spark:impersonator` session key when using the impersonation feature. As a result, we can check for that in our app's `app.blade.php` layout file, and conditionally set a javascript variable:
 
-<script src="https://gist.github.com/tnorthcutt/930fca70f68949a5a54ee98ae0da04bd.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/930fca70f68949a5a54ee98ae0da04bd)
+https://gist.github.com/tnorthcutt/930fca70f68949a5a54ee98ae0da04bd
 
 We can then check for that variable in our javascript, and skip user tracking if it's present.

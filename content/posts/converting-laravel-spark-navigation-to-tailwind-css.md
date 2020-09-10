@@ -20,15 +20,11 @@ If you're ready to commit, you'll need to include `tailwindcss` in your `packag
 
 In my `webpack.mix.js` file, I was then able to follow the instructions provided by [laravel-mix-tailwind](https://github.com/JeffreyWay/laravel-mix-tailwind), and get Tailwind compiling ok after adding the tailwind directives to the **end** of my `app.less` file:
 
-<script src="https://gist.github.com/tnorthcutt/bfe7e103c1840b9f99fdbc7bd0234331.js?file=app.less"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/bfe7e103c1840b9f99fdbc7bd0234331#file-app-less)
+https://gist.github.com/tnorthcutt/bfe7e103c1840b9f99fdbc7bd0234331
 
 You'll notice the `bootstrap-overrides.less` file there; I had to make a couple of additions to override some default Bootstrap files that didn't play well with Tailwind:
 
-<script src="https://gist.github.com/tnorthcutt/610cb8ee7884d43e521dbfb9362d1cd3.js?file=bootstrap-overrides.less"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/610cb8ee7884d43e521dbfb9362d1cd3#file-bootstrap-overrides-less)
+https://gist.github.com/tnorthcutt/610cb8ee7884d43e521dbfb9362d1cd3
 
 That may not be the Right Way™ to do this, but it's working ok for me.
 
@@ -39,15 +35,11 @@ Next, I had to figure out how to get two things working:
 
 I ended up creating a single file Vue template called `MainNav.vue` and using it as an inline template; this let me still use blade helpers within it. Here's the template:
 
-<script src="https://gist.github.com/tnorthcutt/d0a310530e9eba955622e6f9d473f473.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/d0a310530e9eba955622e6f9d473f473)
+https://gist.github.com/tnorthcutt/d0a310530e9eba955622e6f9d473f473
 
 And where it's used in `resources/views/nav/user.blade.php`:
 
-<script src="https://gist.github.com/tnorthcutt/594d767ead56f1a04cf5a030402cb29b.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/594d767ead56f1a04cf5a030402cb29b)
+https://gist.github.com/tnorthcutt/594d767ead56f1a04cf5a030402cb29b
 
 ### Toggling visibility
 
@@ -55,12 +47,10 @@ Notice the `navOpen` and `dropdownOpen` props, and associated `toggleNav()` a
 
 The dropdown toggling is done exactly the same; you can see `dropdown-toggle.blade.php` is included in the main nav file. For some reason, I ended up with `dropdown.blade.php` being `@include()`\-ed in `dropdown-toggle.blade.php` instead other way around, but the names don't really matter.
 
-<script src="https://gist.github.com/tnorthcutt/10a91f7da3141e7a208cb9da1d5f8c9d.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/10a91f7da3141e7a208cb9da1d5f8c9d)
+https://gist.github.com/tnorthcutt/10a91f7da3141e7a208cb9da1d5f8c9d
 
 ### Wrap up
 
-That's the general _gist_ of how I did this. I'm sure this isn't all done as perfectly as it could be, but it's functional, looks how I want it, and I understand it – and those three things go a long way in production.
+That's the general *gist* of how I did this. I'm sure this isn't all done as perfectly as it could be, but it's functional, looks how I want it, and I understand it – and those three things go a long way in production.
 
 If you have any questions, or suggestions, shoot me an email at travis@travisnorthcutt.com. I'd love to hear from you.

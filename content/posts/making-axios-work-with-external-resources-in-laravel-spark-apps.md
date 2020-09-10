@@ -9,15 +9,11 @@ Github does give you a [/latest release URL](https://github.com/tnorthcutt/membe
 
 Instead, I opted to make use of the Github API, which returns that latest release as a json object: [https://api.github.com/repos/tnorthcutt/member-score-wp-plugin/releases/latest](https://api.github.com/repos/tnorthcutt/member-score-wp-plugin/releases/latest). I'm then able to grab the first element of the `assets` array in that object, and use the `browser_download_url`. In my Vue component:
 
-<script src="https://gist.github.com/tnorthcutt/9ee01af0f3d7f5684ad6b7172c98a658.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/9ee01af0f3d7f5684ad6b7172c98a658)
+https://gist.github.com/tnorthcutt/9ee01af0f3d7f5684ad6b7172c98a658
 
 You'll notice there that I'm fetching the Github URL with axios. By default, [Laravel Spark](https://spark.laravel.com/) makes use of [axios](https://github.com/axios/axios), a handy dandy "promise based HTTP client for the browser and node.js." Axios is very convenient to use. However, Spark also sets some default headers on requests sent with axios:
 
-<script src="https://gist.github.com/tnorthcutt/84a5a4b26d69aea91c25310c65568d56.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/84a5a4b26d69aea91c25310c65568d56)
+https://gist.github.com/tnorthcutt/84a5a4b26d69aea91c25310c65568d56
 
 As a result, you may run into some issues using axios for external requests (outside of your application). Here's a [Laracasts thread](https://laracasts.com/discuss/channels/javascript/axios-without-csrf-and-requested-with-headers) explaining just that problem. This was the case for me; performing that request resulted in this nasty error message:
 
@@ -27,8 +23,6 @@ Access to XMLHttpRequest at 'https://api.github.com/repos/tnorthcutt/member-scor
 
 The solution turns out to be deleting the `X-CSRF-TOKEN` header just before making the request, then adding it back afterwards (so we don't break things for other parts of the application):
 
-<script src="https://gist.github.com/tnorthcutt/2a0dd75fc6dc8f5defc05605009bf41b.js"></script>
-
-[View this gist on GitHub](https://gist.github.com/tnorthcutt/2a0dd75fc6dc8f5defc05605009bf41b)
+https://gist.github.com/tnorthcutt/2a0dd75fc6dc8f5defc05605009bf41b
 
 While this seems like a bit of a messy workaround, it does indeed work. There is currently a [pull request on the axios repository](https://github.com/axios/axios/pull/1845) to allow setting a header to `null` on an individual request and not sending that header as a result; that would be far preferable. As of this writing, axios still sends an empty header if you set it to `null`, which breaks [Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers).
