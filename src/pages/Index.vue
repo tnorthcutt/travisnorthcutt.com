@@ -5,8 +5,7 @@
       <p class="text-2xl leading-relaxed">
         I'm Travis Northcutt. I write code – mostly
         <a href="https://vuejs.org">VueJS</a> and
-        <a href="https://laravel.com">Laravel</a>. If you need help with things
-        like that, you should <g-link to="/hire-me" class="">hire me</g-link>.
+        <a href="https://laravel.com">Laravel</a>. I'm a Lead Software Engineer at <a href="https://apiabroad.com/">API Abroad</a>.
       </p>
       <p class="text-2xl leading-relaxed">
         You can find me on <a href="https://twitter.com/tnorthcutt">Twitter</a>,
