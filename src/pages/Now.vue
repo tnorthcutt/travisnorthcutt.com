@@ -6,7 +6,7 @@
     </h2>
 
     <h3>
-      March 2010 update,
+      March 2021 update,
       <span class="italic">still in a pandemic (but maybe not for long?)</span> edition:
     </h3>
     <p>I recently accepted a full time position with <a href="https://apiabroad.com">API Abroad</a> as a Lead Software Engineer. I'm pretty excited about it; I like the team and have already been doing contract development work there for a little over a year, so no surprises.</p>
