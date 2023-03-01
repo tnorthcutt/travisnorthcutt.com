@@ -98,6 +98,10 @@ export const config: Config = {
       },
       selfClosing: true,
     },
+    oldpost: {
+      render: "OldPost",
+      selfClosing: true,
+    },
   },
   nodes: {
     heading: {
