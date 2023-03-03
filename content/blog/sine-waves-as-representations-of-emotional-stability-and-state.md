@@ -1,6 +1,6 @@
 ---
 external: false
-draft: false
+draft: true
 title: "Sine waves as representations of emotional stability and state"
 date: 2023-02-23
 ---

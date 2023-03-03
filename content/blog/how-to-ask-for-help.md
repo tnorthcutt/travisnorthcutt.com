@@ -44,11 +44,12 @@ The goal is to minimize time spent back-and-forth asking questions and gathering
 
 ### Here's an example of a bug report that is incomplete:
 
-I can't get docker to work with connect on my machine
+"I can't get docker to work with connect on my machine."
 
 ### Here's an example of a bug report that has a lot more information and is more likely to get you the help you need:
 
-> I'm unable to get Connect to work on my local machine using Docker.
+"""  
+I'm unable to get Connect to work on my local machine using Docker.
 
 **What I did:**  
 I ran `docker-compose up` and navigated to `http://localhost:8081` in my browser.
@@ -87,7 +88,8 @@ I looked in the logs for the laravel container in Docker Desktop and saw this, b
 2023-01-05 14:45:20       Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 ```
 
-Does anyone have a suggestion on what I could do next to debug this?
+Does anyone have a suggestion on what I could do next to debug this?  
+"""
 
 ## Conclusion
 

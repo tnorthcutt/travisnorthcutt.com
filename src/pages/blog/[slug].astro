@@ -11,6 +11,7 @@ export async function getStaticPaths() {
     directory: "blog",
     frontmatterSchema: blog,
   });
+  console.log(posts);
 
   // we don't want to generate pages for posts that link to external websites
   const filteredPosts = posts
@@ -39,7 +40,7 @@ const ogImageAbsoluteUrl =
     : undefined;
 ---
 
-<ContentLayout title={frontmatter.title} date={frontmatter.date}>
+<ContentLayout title={frontmatter.title} date={frontmatter.date} class="prose">
   <BlogPostMeta
     title={frontmatter.title}
     description={frontmatter.external ? undefined : frontmatter.description}
