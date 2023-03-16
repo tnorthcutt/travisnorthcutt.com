@@ -48,7 +48,8 @@
 /* ------ GLOBAL STYLES - START ------ */
 
 :root {
-	font-family: Verdana, sans-serif;
+	/* font-family: Verdana, sans-serif; */
+	font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
 	line-height: 1.75;
 	scroll-behavior: smooth;
 }

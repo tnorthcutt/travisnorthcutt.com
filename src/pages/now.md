@@ -4,7 +4,15 @@ layout: ../layouts/NowLayout.astro
 
 # Now
 
-## This page is the most up to date snapshot of what I’m up to.
+## This page is (aspirationally) the most up to date snapshot of what I’m up to.
+
+### March 2023 update:
+
+Three years in at [API Abroad](https://apiabroad.com/) and it's going great. We're growing and hiring a lot, I'm leading a team and managing several folks, and I really like the people I work with.
+
+Amanda recently started a new business, [The Action Effect](https://www.theactioneffect.com/) with her partner Will Elliot. It's been awesome seeing her get this going; she's the operations/strategy/etc. behind the business, while Will is the "subject matter expert". They're positively impacting a lot of families, and have quite the future mapped out.
+
+Kyle started at a new school this year and is doing well there – lots of new friends, more challenging academics, etc. We've been skiing lots, and are excited for the weather to start warming up a bit and get out on our bikes, enjoy lake days, etc.
 
 ### March 2021 update, still in a pandemic (but maybe not for long?) edition:
 
