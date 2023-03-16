@@ -4,6 +4,8 @@ title: Converting Laravel Spark navigation to Tailwind CSS
 date: 2018-11-12
 ---
 
+{% oldpost /%}
+
 I recently converted the navigation of my Laravel Spark based app, [MemberScore](http://memberscore.io), to use [Tailwind CSS](https://tailwindcss.com/). Spark uses Bootstrap out of the box, which I wanted to move away from for two reasons:
 
 1. I find it a bit clunky and restricting, personally

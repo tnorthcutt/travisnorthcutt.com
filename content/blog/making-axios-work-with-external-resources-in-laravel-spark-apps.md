@@ -4,6 +4,8 @@ title: "Making axios work with external resources in Laravel Spark apps"
 date: 2018-12-06
 ---
 
+{% oldpost /%}
+
 In [MemberScore](https://memberscore.io), we make use of a WordPress plugin to connect a user's site to MemberScore. The easiest way to provide that plugin is to give users a zip file that they can upload through their WordPress admin area. I could ship a zip file with my Laravel application, but since I'm already hosting that plugin's code on Github, it seems silly to also add it to the Laravel application, and to update the file each time I make a change to the plugin code.
 
 Github does give you a [/latest release URL](https://github.com/tnorthcutt/member-score-wp-plugin/releases/latest) that redirects to the most recent release of a repository, but that would still require users to then click on the correct download link – plus it's an extra step.

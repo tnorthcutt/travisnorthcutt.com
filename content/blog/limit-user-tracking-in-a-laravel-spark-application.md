@@ -4,6 +4,8 @@ title: "Limit user tracking in a Laravel Spark application"
 date: 2018-12-10
 ---
 
+{% oldpost /%}
+
 [Laravel Spark](https://spark.laravel.com/) comes with a really handy feature: user impersonation. The "kiosk" allows you to search for users of your application, and click a button to sign in as that user. This is great for things like white-glove onboarding, recording screencasts for a user to show them a feature, etc.
 
 It's quite common to use something like Intercom, FullStory, etc. to track users in your application. You might want to keep tabs on how often they log in, what actions they take, and so on. But, if you use that impersonation feature, you'll trigger that tracking for a user's account when they aren't actually using the app! And, you probably don't care about using something like FullStory to track your own usage of the app.

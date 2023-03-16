@@ -5,6 +5,8 @@ description: "You can author content using the familiar markdown syntax you alre
 date: 2014-05-16
 ---
 
+{% oldpost /%}
+
 > _December 2015 update: I wrote a book on freelancing/consulting with my mastermind group. [Learn more about that here.](http://travisnorthcutt.com/buy-our-book/)_
 
 I've been exchanging emails with a friend about his career, which includes considering whether to make a stronger move toward freelancing over employment. Yesterday he asked me this:
