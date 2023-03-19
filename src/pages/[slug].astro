@@ -5,13 +5,13 @@ import Renderer from "../components/Renderer.astro";
 import BlogPostMeta from "../components/BlogPostMeta.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { SITE_URL } from "../config";
+import CommitHistory from "src/components/CommitHistory.astro";
 
 export async function getStaticPaths() {
   const posts = await readAll({
     directory: "blog",
     frontmatterSchema: blog,
   });
-  console.log(posts);
 
   // we don't want to generate pages for posts that link to external websites
   const filteredPosts = posts
@@ -40,14 +40,18 @@ const ogImageAbsoluteUrl =
     : undefined;
 ---
 
-<ContentLayout title={frontmatter.title} date={frontmatter.date} class="prose">
+<ContentLayout title={frontmatter.title} date={frontmatter.date}>
   <BlogPostMeta
     title={frontmatter.title}
     description={frontmatter.external ? undefined : frontmatter.description}
     publishDate={frontmatter.date.toISOString()}
-    pagePath={`/blog/${slug}`}
+    pagePath={`/${slug}`}
     ogImageAbsoluteUrl={ogImageAbsoluteUrl}
     slot="meta"
   />
   <Renderer content={content} slot="content" />
+  <CommitHistory
+    path={`${slug}.md`}
+    slot="content"
+  />
 </ContentLayout>

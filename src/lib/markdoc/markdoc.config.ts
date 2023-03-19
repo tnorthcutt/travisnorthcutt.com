@@ -102,6 +102,13 @@ export const config: Config = {
       render: "OldPost",
       selfClosing: true,
     },
+    commithistory: {
+      render: "CommitHistory",
+      attributes: {
+        path: { type: String, required: true },
+      },
+      selfClosing: true,
+    },
   },
   nodes: {
     heading: {
