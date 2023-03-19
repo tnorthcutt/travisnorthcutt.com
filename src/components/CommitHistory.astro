@@ -8,8 +8,6 @@ const base = "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commit
 
 const response = await fetch(base + path);
 const data = await response.json();
-console.log(data);
-console.log(data.map(commit => commit.commit.committer));
 ---
 
 <h3>Revisions</h3>
