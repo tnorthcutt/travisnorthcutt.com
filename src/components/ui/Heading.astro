@@ -5,12 +5,9 @@ export interface Props extends astroHTML.JSX.BaseHTMLAttributes {
 
 const { as: Tag = "h1", class: className, ...props } = Astro.props;
 ---
-<Tag class:list={[className, "heading"]} {...props}>
+<Tag class:list={[className, ""]} {...props}>
   <slot />
 </Tag>
 
 <style is:global>
-  .heading {
-    color: var(--text-heading);
-  }
 </style>
