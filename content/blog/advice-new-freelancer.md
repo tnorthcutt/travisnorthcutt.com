@@ -1,7 +1,6 @@
 ---
 external: false
 title: "Advice to a new freelancer"
-description: "You can author content using the familiar markdown syntax you already know. All basic markdown syntax is supported."
 date: 2014-05-16
 ---
 
