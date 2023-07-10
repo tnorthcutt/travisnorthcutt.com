@@ -18,7 +18,7 @@ Books, in no order at all:
 - The Things We Carried *
 - More With Less
 - The Way of Kings (series)
-- 1492
+- 1491
 - Berlin 1961
 - All the Pretty Horses (series) *
 - Exodus
