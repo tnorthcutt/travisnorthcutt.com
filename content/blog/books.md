@@ -15,32 +15,32 @@ I'll update this, if/when I remember to.
 Some of these are the first in a series/trilogy/whatever. If I'm referring to the whole series/trilogy I'll add (series). Maybe other notes as well. Asterisks mean "you REALLY should read this it's great/important/underrated/whatever". More asterisks really mean it.
 
 Books, in no order at all:
-- The Things We Carried *
+- The Things We Carried * - war is horrendous.
 - More With Less
-- The Way of Kings (series)
+- The Way of Kings (series) - if you like fantasy, lovely series. Unfinished.
 - 1491
 - Berlin 1961
-- All the Pretty Horses (series) *
+- All the Pretty Horses (series) * - been a long time but will probably re-read in the next few years. Lots of depth both in the story and the writing.
 - Exodus
-- The Time Traveler's Wife *
+- The Time Traveler's Wife * - left me very, very sad
 - The Lord of the Rings (series)
 - Harry Potter (series)
 - Fatherland
-- The City and the City **
+- The City and the City ** - don't think I've read anything quite like this before or since. 
 - Mistborn (series)
 - The Expanse (series)
 - Sharpe's Tiger
 - The Long Ships
 - The Scout Mindset
-- Redwall (series)
+- Redwall (series) - epic young adult fantasy series. Even more delightful watching my son enjoy them.
 - Liftoff
 - A Wrinkle in Time
 - The Arm of the Starfish
 - My Side of the Mountain
 - Hatchet
-- 11/22/63
+- 11/22/63 - only Stephen King I've read. Gripping.
 - How to Change Your Mind
-- 1632
+- 1632 - absurd and fun if you like historical fiction but aren't precious about it
 - One Man's Wilderness
 - The Martian
 - Project Hail Mary
@@ -49,3 +49,4 @@ Books, in no order at all:
 - This Game of Ghosts
 - Dune
 - The Road (huge caveat, probably don't read this, but powerful book)
+- Station Eleven
