@@ -29,7 +29,7 @@ Books, in no order at all:
 - The City and the City ** - don't think I've read anything quite like this before or since. 
 - Mistborn (series)
 - The Expanse (series)
-- Sharpe's Tiger
+- Sharpe's Tiger (long series, great historical fiction)
 - The Long Ships
 - The Scout Mindset
 - Redwall (series) - epic young adult fantasy series. Even more delightful watching my son enjoy them.
@@ -50,3 +50,8 @@ Books, in no order at all:
 - Dune
 - The Road (huge caveat, probably don't read this, but powerful book)
 - Station Eleven
+- Fidelity (It took me until age 37 to read Wendell Berry. I hope to write like him, someday.)
+- In the Garden of Beasts – fascinating look at pre-war Germany through American ambassdor's + family's eyes
+- Act of Oblivion – great historical fiction
+- The Wager - kinda starts off slow but fascinating tale and I was fully engaged by halfway through
+- Night – only just now read this b/c my son was reading it for school as well. Holocaust memoir, with all that entails.
