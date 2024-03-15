@@ -18,11 +18,12 @@ export interface Props {
 }
 
 const { title, date } = Astro.props;
-const formattedDate = new Date(date).toLocaleDateString("en-us", {
+const formattedDate = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
-  month: "short",
+  month: "long",
   day: "numeric",
-});
+  timeZone: "UTC",
+}).format(date);
 ---
 
 <!DOCTYPE html>
@@ -61,21 +62,22 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
         grid-area: main;
       }
     </style>
-  </body><style>
-    .title {
-      font-size: 2.5em;
-      line-height: 1.2 !important;
-      margin: 0.25em 0 0;
-    }
-    .publish-date {
-      font-size: 0.875em;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      display: block;
-    }
-    hr {
-      border-top: 1px solid #ddd;
-      margin: 1rem 0;
-    }
-  </style>
+    <style>
+      .title {
+        font-size: 2.5em;
+        line-height: 1.2 !important;
+        margin: 0.25em 0 0;
+      }
+      .publish-date {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        display: block;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+    </style>
+  </body>
 </html>

@@ -15,10 +15,10 @@ export async function getStaticPaths() {
 
   // we don't want to generate pages for posts that link to external websites
   const filteredPosts = posts
-    .filter((p) => p.frontmatter.draft !== true)
+    .filter(p => p.frontmatter.draft !== true)
     .filter(({ frontmatter }) => !frontmatter.external);
 
-  return filteredPosts.map((post) => {
+  return filteredPosts.map(post => {
     return { params: { slug: post.slug } };
   });
 }
@@ -50,8 +50,5 @@ const ogImageAbsoluteUrl =
     slot="meta"
   />
   <Renderer content={content} slot="content" />
-  <CommitHistory
-    path={`${slug}.md`}
-    slot="content"
-  />
+  <CommitHistory path={`${slug}.md`} slot="content" />
 </ContentLayout>
