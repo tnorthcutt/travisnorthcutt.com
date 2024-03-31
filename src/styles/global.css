@@ -7,7 +7,10 @@
 :root {
   font-family: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052,
     serif;
+  /* Control the padding inside the Tweet card. */
+  --tc-padding: 3rem;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -163,4 +166,8 @@ a.animated:hover:after {
 
 a.animated.active:after {
   transform: translateZ(0) scale(1);
+}
+
+.footnotes {
+  @apply border-t-2 border-gray-200;
 }
