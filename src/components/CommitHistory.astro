@@ -3,8 +3,10 @@ type Props = {
   path: string;
 };
 
-const { path } = Astro.props;
-const base = "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commits?path=/content/blog/";
+let { path } = Astro.props;
+path = path.replace("/blog/", "");
+const base =
+  "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commits?path=/content/blog/";
 
 const response = await fetch(base + path);
 const data = await response.json();
@@ -12,21 +14,29 @@ const data = await response.json();
 
 <h3>Revisions</h3>
 <div class="space-y-4">
-{data.map(commit => (
-  <div class="flex border-solid border border-gray-300 p-4">
-    <img
-      class="my-0 h-16 w-16 rounded-full"
-      src={commit.author.avatar_url}
-    />
-    <div class="flex flex-col px-4">
-          <a class="bg-none" href={commit.html_url} target="gh-history">{
-            commit.commit.message.split()[0]
-          }</a
-          ><span
-            >{commit.commit.author.name} updated this on
-            {new Date(commit.commit.author.date).toLocaleDateString()}
-          </span>
+  {
+    data.map((commit) => (
+      <div class="flex border-solid border border-gray-300 p-4">
+        <img
+          class="my-0 h-16 w-16 rounded-full"
+          src={commit.author.avatar_url}
+        />
+        <div class="flex flex-col px-4">
+          <>
+            <a
+              class="bg-none"
+              href={commit.html_url}
+              target="gh-history"
+            >
+              {commit.commit.message.split()[0]}
+            </a>
+            <span>
+              {commit.commit.author.name} updated this on
+              {new Date(commit.commit.author.date).toLocaleDateString()}
+            </span>
+          </>
         </div>
-    </div>
-))}
-</div>    
+      </div>
+    ))
+  }
+</div>
