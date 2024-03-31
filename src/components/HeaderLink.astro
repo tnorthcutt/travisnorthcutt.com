@@ -1,17 +1,15 @@
 ---
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
-const path = Astro.url.pathname.replace(/\/$/, "");
 
-const isHome = href === '/' && path === '';
-const isOtherPages = typeof href === "string" && href.length > 1
-    ? path.substring(1).startsWith(href.substring(1))
-    : false;
-const isActive = isHome || isOtherPages
-
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === "/" + subpath?.[0];
 ---
-<!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. -->
+
 <a
   href={href}
   class:list={[
@@ -22,11 +20,13 @@ const isActive = isHome || isOtherPages
     "gradient-colors",
   ]}
   {...props}
-><slot /></a>
+>
+  <slot />
+</a>
 <style>
   a.gradient-colors {
-    --animated-underline-from: var(--text-heading);
-    --animated-underline-to: var(--text-heading);
+    --animated-underline-from: #0f172a;
+    --animated-underline-to: #0f172a;
   }
 
   .header-link {
