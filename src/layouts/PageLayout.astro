@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
 import Favicon from "./Favicon.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html class="theme-sleek" lang="en">
   <head>
     <!-- Global Metadata -->
@@ -23,6 +23,12 @@ import Favicon from "./Favicon.astro";
     <meta name="generator" content="Blogster" />
     <Favicon />
     <slot name="meta" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href={`${Astro.site}rss.xml`}
+    />
   </head>
 
   <body class="text-text-body bg-bg-body max-w-3xl mx-auto px-4 sm:px-8">
