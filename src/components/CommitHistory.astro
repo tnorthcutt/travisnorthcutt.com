@@ -2,14 +2,20 @@
 type Props = {
   path: string;
 };
+const GITHUB_API_TOKEN = import.meta.env.GITHUB_API_TOKEN;
 
 let { path } = Astro.props;
 path = path.startsWith("/") ? path.slice(1) : path;
+path = path.replace(/\//g, ""); // This will remove all forward slashes
 
 const base =
-  "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commits?path=/content/blog/";
+  "https://api.github.com/repos/tnorthcutt/travisnorthcutt.com/commits?path=src/content/blog/";
 
-const response = await fetch(base + path);
+const headers = {
+  Authorization: `token ${GITHUB_API_TOKEN}`,
+};
+
+const response = await fetch(base + path, { headers });
 const data = await response.json();
 ---
 
