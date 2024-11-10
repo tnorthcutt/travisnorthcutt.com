@@ -6,6 +6,18 @@ layout: ../layouts/NowLayout.astro
 
 ## This page is (aspirationally) the most up to date snapshot of what I’m up to.
 
+### November 2024 update:
+
+I started a new job last month! I'm now doing software development at [Paleovalley](https://paleovalley.com/) and [Wild Pastures](https://wildpastures.com/). I've only been there a few weeks but so far it's great. Nice to have new stuff to work on, working with tools and frameworks I enjoy, and the team so far is great.
+
+I also started a podcast recently, called [Everything is Interesting](https://everythingisinterestingpod.com/). The premise is I just talk to people who are really into something – doesn't really matter what, because I love asking questions and learnign about almost anything. So far it's been great fun and very interesting.
+
+Amanda's business has morphed into a consultancy + content/teaching business: https://welevelupcreators.com/ and https://www.levelupcreatorschool.com/. Her team is fan-freaking-tastic and they're doing great work helping people earn a living doing what they love.
+
+I got myself a new road bike as a "congrats on the new job" present, and I've been doing a lot more cycling lately – although now it's moving into winter so that's not quite as enjoyable. Follow me on [Strava](https://www.strava.com/athletes/10617502) if that's your thing.
+
+Kyle's doing well, halfway through his last (!!) year of middle school. He played tennis last fall and this fall and did quite well and really enjoyed that, which has been lots of fun to watch.
+
 ### March 2023 update:
 
 Three years in at [API Abroad](https://apiabroad.com/) and it's going great. We're growing and hiring a lot, I'm leading a team and managing several folks, and I really like the people I work with.
