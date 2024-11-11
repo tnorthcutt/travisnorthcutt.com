@@ -15,12 +15,21 @@ import Favicon from "./Favicon.astro";
 ---
 
 <!doctype html>
-<html class="theme-sleek" lang="en">
+<html
+  class="theme-sleek"
+  lang="en"
+>
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="Blogster" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    />
+    <meta
+      name="generator"
+      content="Blogster"
+    />
     <Favicon />
     <slot name="meta" />
     <link
@@ -33,7 +42,10 @@ import Favicon from "./Favicon.astro";
 
   <body class="text-text-body bg-bg-body max-w-3xl mx-auto px-4 sm:px-8">
     <Header />
-    <main id="main" class="prose prose-lg dark:prose-invert">
+    <main
+      id="main"
+      class="prose prose-lg dark:prose-invert max-w-none"
+    >
       <slot name="main" />
     </main>
     <Footer />

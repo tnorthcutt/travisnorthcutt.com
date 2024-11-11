@@ -1,0 +1,92 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const posts = (await getCollection("til")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<PageLayout>
+  <BaseHead
+    title={SITE_TITLE}
+    description={SITE_DESCRIPTION}
+    slot="meta"
+  />
+  <Fragment slot="main">
+    <h1 class="text-3xl font-bold text-center">TILs</h1>
+    <p class="text-xl">Small learnings:</p>
+    <hr class="my-4" />
+    <section>
+      <ul>
+        {
+          posts.map((post) => {
+            const formattedDate = new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            }).format(post.data.pubDate);
+            return (
+              <li class="post flex justify-between">
+                <div class="title text-gray-800 hover:text-blue-600">
+                  <a href={`/til/${post.id}`}>{post.data.title}</a>
+                </div>
+                <div class="publish-date">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formattedDate}
+                  </time>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </Fragment>
+</PageLayout>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  .post {
+    display: grid;
+    grid-template-columns: 1fr;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 640px) {
+    .post {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  .post + .post {
+    padding-top: 0.5rem;
+  }
+
+  .title a {
+    color: var(--text);
+    border-bottom: none;
+  }
+
+  .title a:hover {
+    color: #2563eb;
+  }
+
+  .icon-realign {
+    margin-bottom: -1.5px;
+    margin-left: 2px;
+  }
+
+  .publish-date {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+</style>
