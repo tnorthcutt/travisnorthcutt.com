@@ -280,6 +280,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "til": {
+"php-constructor-property-promotion.md": {
+	id: "php-constructor-property-promotion.md";
+  slug: "php-constructor-property-promotion";
+  body: string;
+  collection: "til";
+  data: InferEntrySchema<"til">
+} & { render(): Render[".md"] };
 "phpstorm-find-results-shown.md": {
 	id: "phpstorm-find-results-shown.md";
   slug: "phpstorm-find-results-shown";
