@@ -264,6 +264,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"the-process-is-the-point.md": {
+	id: "the-process-is-the-point.md";
+  slug: "the-process-is-the-point";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "the-sacred-and-mundane.md": {
 	id: "the-sacred-and-mundane.md";
   slug: "the-sacred-and-mundane";
