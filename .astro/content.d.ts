@@ -287,6 +287,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "til": {
+"php-constructor-property-promotion copy.md": {
+	id: "php-constructor-property-promotion copy.md";
+  slug: "php-constructor-property-promotion-copy";
+  body: string;
+  collection: "til";
+  data: InferEntrySchema<"til">
+} & { render(): Render[".md"] };
 "php-constructor-property-promotion.md": {
 	id: "php-constructor-property-promotion.md";
   slug: "php-constructor-property-promotion";
