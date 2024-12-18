@@ -287,9 +287,16 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "til": {
-"php-constructor-property-promotion copy.md": {
-	id: "php-constructor-property-promotion copy.md";
-  slug: "php-constructor-property-promotion-copy";
+"atuin-zsh-autosuggestions-integration.md": {
+	id: "atuin-zsh-autosuggestions-integration.md";
+  slug: "atuin-zsh-autosuggestions-integration";
+  body: string;
+  collection: "til";
+  data: InferEntrySchema<"til">
+} & { render(): Render[".md"] };
+"mysql-ansi-quotes.md": {
+	id: "mysql-ansi-quotes.md";
+  slug: "mysql-ansi-quotes";
   body: string;
   collection: "til";
   data: InferEntrySchema<"til">
@@ -304,6 +311,13 @@ declare module 'astro:content' {
 "phpstorm-find-results-shown.md": {
 	id: "phpstorm-find-results-shown.md";
   slug: "phpstorm-find-results-shown";
+  body: string;
+  collection: "til";
+  data: InferEntrySchema<"til">
+} & { render(): Render[".md"] };
+"ssh-term-backspace.md": {
+	id: "ssh-term-backspace.md";
+  slug: "ssh-term-backspace";
   body: string;
   collection: "til";
   data: InferEntrySchema<"til">
