@@ -167,7 +167,3 @@ a.animated:hover:after {
 a.animated.active:after {
   transform: translateZ(0) scale(1);
 }
-
-.footnotes {
-  @apply border-t-2 border-gray-200;
-}

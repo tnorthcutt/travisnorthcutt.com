@@ -22,7 +22,7 @@ const data = await response.json();
 <h3>Revisions</h3>
 <div class="space-y-4">
   {
-    data.map((commit) => (
+    data?.length > 0 && data.map((commit) => (
       <div class="flex border-solid border border-gray-300 p-4">
         <img
           class="my-0 h-16 w-16 rounded-full"
