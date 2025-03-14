@@ -3,7 +3,7 @@ title: MySQL ANSI_QUOTES
 pubDate: 2024-12-18
 ---
 
-Recently when importan an sql dump into a MySQL database, I ran into this error message:
+Recently when importing an sql dump into a MySQL database, I ran into this error message:
 
 ```
 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"shipping_areas" (
