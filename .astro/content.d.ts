@@ -208,6 +208,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"handholds.md": {
+	id: "handholds.md";
+  slug: "handholds";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "happiness-is-an-extremely-uneventful-subject.md": {
 	id: "happiness-is-an-extremely-uneventful-subject.md";
   slug: "happiness-is-an-extremely-uneventful-subject";
