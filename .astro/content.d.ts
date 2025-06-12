@@ -194,6 +194,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"fallibility-of-language.md": {
+	id: "fallibility-of-language.md";
+  slug: "fallibility-of-language";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "git-clean.mdx": {
 	id: "git-clean.mdx";
   slug: "git-clean";
@@ -292,6 +299,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"this-is-all-there-is-maybe.md": {
+	id: "this-is-all-there-is-maybe.md";
+  slug: "this-is-all-there-is-maybe";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "what-if.md": {
 	id: "what-if.md";
   slug: "what-if";
@@ -304,6 +318,13 @@ declare module 'astro:content' {
 "atuin-zsh-autosuggestions-integration.md": {
 	id: "atuin-zsh-autosuggestions-integration.md";
   slug: "atuin-zsh-autosuggestions-integration";
+  body: string;
+  collection: "til";
+  data: InferEntrySchema<"til">
+} & { render(): Render[".md"] };
+"git-diff-exclude.md": {
+	id: "git-diff-exclude.md";
+  slug: "git-diff-exclude";
   body: string;
   collection: "til";
   data: InferEntrySchema<"til">
