@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathwork Timer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .circle-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .outline {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px solid #444;
+            position: absolute;
+        }
+        
+        .circle {
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            background: #4a9eff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .phase-label {
+            font-size: 24px;
+            margin-bottom: 10px;
+            min-height: 30px;
+        }
+        
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            min-height: 60px;
+            color: #4a9eff;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .control-group {
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #aaa;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #2a2a2a;
+            color: #fff;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #4a9eff;
+            color: #fff;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #357ac9;
+        }
+        
+        button.stop {
+            background: #ff4a4a;
+        }
+        
+        button.stop:hover {
+            background: #c93535;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle-container">
+            <div class="outline"></div>
+            <div class="circle" id="circle"></div>
+        </div>
+        
+        <div class="phase-label" id="phaseLabel"></div>
+        <div class="timer" id="timer"></div>
+        
+        <div style="margin-bottom: 20px;">
+            <label style="display: inline-flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="showTimer" style="width: auto; margin-right: 8px;">
+                Show timer
+            </label>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Inhale (s)</label>
+                <input type="number" id="inhale" value="4" min="1" max="20">
+            </div>
+            <div class="control-group">
+                <label>Hold (s)</label>
+                <input type="number" id="pauseInhale" value="4" min="0" max="20">
+            </div>
+            <div class="control-group">
+                <label>Exhale (s)</label>
+                <input type="number" id="exhale" value="4" min="1" max="20">
+            </div>
+            <div class="control-group">
+                <label>Hold (s)</label>
+                <input type="number" id="pauseExhale" value="4" min="0" max="20">
+            </div>
+        </div>
+        
+        <button id="toggleBtn">Start</button>
+    </div>
+
+    <script is:inline>
+        let isRunning = false;
+        let currentPhase = 0;
+        let phaseTimeout;
+        let timerInterval;
+        let phaseStartTime;
+        let phaseDuration;
+        
+        const circle = document.getElementById('circle');
+        const phaseLabel = document.getElementById('phaseLabel');
+        const timerDisplay = document.getElementById('timer');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const showTimerCheckbox = document.getElementById('showTimer');
+        
+        const phases = [
+            { name: 'Inhale', size: 250, getValue: () => parseInt(document.getElementById('inhale').value) },
+            { name: 'Hold', size: 250, getValue: () => parseInt(document.getElementById('pauseInhale').value) },
+            { name: 'Exhale', size: 0, getValue: () => parseInt(document.getElementById('exhale').value) },
+            { name: 'Hold', size: 0, getValue: () => parseInt(document.getElementById('pauseExhale').value) }
+        ];
+        
+        function updateTimer() {
+            if (!isRunning || !showTimerCheckbox.checked) {
+                timerDisplay.textContent = '';
+                return;
+            }
+            
+            const elapsed = (Date.now() - phaseStartTime) / 1000;
+            const remaining = Math.max(0, phaseDuration - elapsed);
+            timerDisplay.textContent = Math.ceil(remaining);
+            
+            if (remaining > 0) {
+                requestAnimationFrame(updateTimer);
+            }
+        }
+        
+        function runPhase(index) {
+            if (!isRunning) return;
+            
+            const phase = phases[index];
+            const duration = phase.getValue();
+            
+            if (duration === 0 && (index === 1 || index === 3)) {
+                currentPhase = (index + 1) % 4;
+                runPhase(currentPhase);
+                return;
+            }
+            
+            phaseLabel.textContent = phase.name;
+            circle.style.width = phase.size + 'px';
+            circle.style.height = phase.size + 'px';
+            circle.style.transition = `all ${duration}s ease`;
+            
+            phaseStartTime = Date.now();
+            phaseDuration = duration;
+            
+            if (showTimerCheckbox.checked) {
+                updateTimer();
+            }
+            
+            phaseTimeout = setTimeout(() => {
+                currentPhase = (index + 1) % 4;
+                runPhase(currentPhase);
+            }, duration * 1000);
+        }
+        
+        function toggle() {
+            if (isRunning) {
+                stop();
+            } else {
+                start();
+            }
+        }
+        
+        function start() {
+            isRunning = true;
+            currentPhase = 0;
+            toggleBtn.textContent = 'Stop';
+            toggleBtn.classList.add('stop');
+            runPhase(0);
+        }
+        
+        function stop() {
+            isRunning = false;
+            clearTimeout(phaseTimeout);
+            toggleBtn.textContent = 'Start';
+            toggleBtn.classList.remove('stop');
+            phaseLabel.textContent = '';
+            timerDisplay.textContent = '';
+            circle.style.width = '0px';
+            circle.style.height = '0px';
+            circle.style.transition = 'all 0.3s ease';
+        }
+        
+        showTimerCheckbox.addEventListener('change', () => {
+            if (isRunning) {
+                if (showTimerCheckbox.checked) {
+                    updateTimer();
+                } else {
+                    timerDisplay.textContent = '';
+                }
+            }
+        });
+
+        toggleBtn.addEventListener('click', toggle);
+    </script>
+</body>
+</html>
