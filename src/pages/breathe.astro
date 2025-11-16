@@ -25,7 +25,7 @@
 
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 320px;
             text-align: center;
         }
 
@@ -171,13 +171,41 @@
         let timerInterval;
         let phaseStartTime;
         let phaseDuration;
-        
+
         const circle = document.getElementById('circle');
         const phaseLabel = document.getElementById('phaseLabel');
         const timerDisplay = document.getElementById('timer');
         const toggleBtn = document.getElementById('toggleBtn');
         const showTimerCheckbox = document.getElementById('showTimer');
-        
+
+        // Load saved settings from localStorage
+        const loadSettings = () => {
+            const saved = localStorage.getItem('breathworkSettings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                document.getElementById('inhale').value = settings.inhale || 4;
+                document.getElementById('pauseInhale').value = settings.pauseInhale || 4;
+                document.getElementById('exhale').value = settings.exhale || 4;
+                document.getElementById('pauseExhale').value = settings.pauseExhale || 4;
+                showTimerCheckbox.checked = settings.showTimer || false;
+            }
+        };
+
+        // Save settings to localStorage
+        const saveSettings = () => {
+            const settings = {
+                inhale: parseInt(document.getElementById('inhale').value),
+                pauseInhale: parseInt(document.getElementById('pauseInhale').value),
+                exhale: parseInt(document.getElementById('exhale').value),
+                pauseExhale: parseInt(document.getElementById('pauseExhale').value),
+                showTimer: showTimerCheckbox.checked
+            };
+            localStorage.setItem('breathworkSettings', JSON.stringify(settings));
+        };
+
+        // Load settings on page load
+        loadSettings();
+
         const phases = [
             { name: 'Inhale', size: 180, getValue: () => parseInt(document.getElementById('inhale').value) },
             { name: 'Hold', size: 180, getValue: () => parseInt(document.getElementById('pauseInhale').value) },
@@ -266,7 +294,14 @@
                     timerDisplay.textContent = '';
                 }
             }
+            saveSettings();
         });
+
+        // Save settings when inputs change
+        document.getElementById('inhale').addEventListener('change', saveSettings);
+        document.getElementById('pauseInhale').addEventListener('change', saveSettings);
+        document.getElementById('exhale').addEventListener('change', saveSettings);
+        document.getElementById('pauseExhale').addEventListener('change', saveSettings);
 
         toggleBtn.addEventListener('click', toggle);
     </script>
