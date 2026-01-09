@@ -4,7 +4,10 @@
       "WebFetch(domain:docs.astro.build)",
       "Bash(sips:*)",
       "Bash(cp:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git reset:*)"
     ]
   },
   "enableAllProjectMcpServers": false

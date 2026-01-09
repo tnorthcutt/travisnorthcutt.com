@@ -1,0 +1,179 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import { getArtImages, getArtImagesFromArray } from "../utils/artUtils";
+
+const artPieces = (await getCollection("art"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Get images for each art piece
+const artPiecesWithImages = artPieces.map((piece) => ({
+  ...piece,
+  images: piece.data.images
+    ? getArtImagesFromArray(piece, piece.data.images)
+    : getArtImages(piece)
+}));
+---
+
+<PageLayout>
+  <BaseHead title={`Art - ${SITE_TITLE}`} description="Sculpture and art pieces by Travis Northcutt" slot="meta" />
+  <Fragment slot="main">
+    <section>
+      <h1>Art</h1>
+      <div class="art-grid">
+        {
+          artPiecesWithImages.map(piece => {
+            const formattedDate = new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            }).format(piece.data.pubDate);
+
+            return (
+              <article class="art-piece">
+                <a href={`/art/${piece.id}`} class="art-link">
+                  <div class="image-container">
+                    <img
+                      src={piece.images.mainImage}
+                      alt={piece.data.title}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="art-info">
+                    <h2>{piece.data.title}</h2>
+                    {piece.data.description && (
+                      <p class="description">{piece.data.description}</p>
+                    )}
+                    <div class="metadata">
+                      {piece.data.medium && (
+                        <span class="medium">{piece.data.medium}</span>
+                      )}
+                      {piece.data.dimensions && (
+                        <span class="dimensions">{piece.data.dimensions}</span>
+                      )}
+                      <time datetime={piece.data.pubDate.toISOString()}>
+                        {formattedDate}
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+  </Fragment>
+</PageLayout>
+
+<style>
+  h1 {
+    margin-bottom: 2rem;
+    color: var(--text-heading);
+  }
+
+  .art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .art-piece {
+    background: var(--bg-secondary, #f8f9fa);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .art-piece:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .art-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+
+  .image-container {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-muted, #e9ecef);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .art-piece:hover .image-container img {
+    transform: scale(1.05);
+  }
+
+  .art-info {
+    padding: 1.5rem;
+  }
+
+  .art-info h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--text-heading);
+    line-height: 1.3;
+  }
+
+  .description {
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .metadata span {
+    display: block;
+  }
+
+  .medium {
+    font-style: italic;
+  }
+
+  .dimensions {
+    font-family: monospace;
+  }
+
+  .metadata time {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .art-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .art-info {
+      padding: 1rem;
+    }
+  }
+
+  /* Handle missing images gracefully */
+  .image-container img {
+    background: var(--bg-muted, #e9ecef);
+  }
+</style>

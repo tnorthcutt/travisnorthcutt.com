@@ -1,0 +1,223 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"art">["data"] & {
+  artImages: {
+    mainImage: string;
+    allImages: string[];
+    additionalImages: string[];
+  };
+};
+
+const { title, description, pubDate, updatedDate, medium, dimensions, artImages } = Astro.props;
+const pageDescription = description || `${title} - A sculpture by Travis Northcutt`;
+---
+
+<PageLayout>
+  <BaseHead
+    title={title}
+    description={pageDescription}
+    slot="meta"
+  />
+  <Fragment slot="main">
+    <article class="art-piece">
+      <header class="art-header">
+        <h1>{title}</h1>
+        <div class="art-meta">
+          <div class="date">
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div class="last-updated-on">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          {medium && <div class="medium">Medium: {medium}</div>}
+          {dimensions && <div class="dimensions">Dimensions: {dimensions}</div>}
+        </div>
+        {description && <p class="description">{description}</p>}
+      </header>
+
+      <div class="art-images">
+        <div class="main-image">
+          <img
+            src={artImages.mainImage}
+            alt={title}
+            loading="eager"
+          />
+        </div>
+
+        {artImages.additionalImages.length > 0 && (
+          <div class="additional-images">
+            <h2>Additional Views</h2>
+            <div class="image-grid">
+              {artImages.additionalImages.map((imageSrc) => (
+                <div class="image-container">
+                  <img
+                    src={imageSrc}
+                    alt={`${title} - additional view`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div class="art-content">
+        <slot />
+      </div>
+
+      <nav class="art-navigation">
+        <a href="/art" class="back-to-gallery">← Back to Gallery</a>
+      </nav>
+    </article>
+  </Fragment>
+</PageLayout>
+
+<style>
+  .art-piece {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .art-header {
+    margin-bottom: 2rem;
+  }
+
+  .art-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    color: var(--text-heading);
+  }
+
+  .art-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .date {
+    color: #64748b;
+  }
+
+  .medium {
+    font-style: italic;
+  }
+
+  .dimensions {
+    font-family: monospace;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .art-images {
+    margin-bottom: 2rem;
+  }
+
+  .main-image {
+    margin-bottom: 2rem;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .additional-images h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-heading);
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .image-container {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--bg-muted, #e9ecef);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .image-container:hover img {
+    transform: scale(1.05);
+  }
+
+  .art-content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .art-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .art-navigation {
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    padding-top: 2rem;
+  }
+
+  .back-to-gallery {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border-color, #e5e7eb);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+  }
+
+  .back-to-gallery:hover {
+    background: var(--bg-secondary, #f8f9fa);
+    border-color: var(--border-hover, #d1d5db);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .art-header h1 {
+      font-size: 2rem;
+    }
+
+    .art-meta {
+      font-size: 0.85rem;
+    }
+
+    .image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+  }
+</style>
