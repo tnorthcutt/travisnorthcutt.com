@@ -8,7 +8,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git reset:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "WebSearch",
+      "Bash(grep:*)",
+      "Bash(sort:*)"
     ]
   },
   "enableAllProjectMcpServers": false
