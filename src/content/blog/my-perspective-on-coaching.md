@@ -1,17 +1,8 @@
 ---
-layout: ../layouts/NowLayout.astro
+title: My perspective on coaching
+pubDate: 2026-02-03
+description: ""
 ---
-
-# Coaching
-
-I am currently enrolled in a level 1 coach training course with [Coach Training EDU](https://www.coachtrainingedu.com/). As part of my training, I'm offering free coaching calls. I'm most interested in coaching folks on areas relating to finding purpose & meaning in their life, work, relationships, hobbies, etc.
-
-If that's something you're curious about, please email me! I'm deeply curious about people and love to hear what they're working on, what their hopes and dreams are, and what gets them going!
-
-[travis@travisnorthcutt.com](mailto:travis@travisnorthcutt.com)
-
-## My perspective on coaching
-
 One of my highest values is human connection. I believe that for me, and for many many other people, connection with other humans is one of the most important and meaningful things that we can accomplish. I believe it is life-giving and nourishing to the soul.
 
 I see coaching as an interaction that, if done well, can be a deeply connecting activity which can help someone navigating challenges, changes, or other inflection points in their life. I'm particularly interested in helping people who are seeking to create more purpose and meaning in their lives. I think for many people a natural expression of this seeking is a desire to change careers or vocations – that has certainly been my experience! 
