@@ -6,7 +6,7 @@ layout: ../layouts/NowLayout.astro
 
 I am currently enrolled in a coach training course and as part of my training, I'm offering a limited number of free coaching calls. I'm most interested in coaching folks on areas relating to finding purpose & meaning in their life, work, and relationships.
 
-If you're facing a transition or feeling stuck in an area, get in touch: [travis@travisnorthcutt.com](mailto:travis@travisnorthcutt.com)
+If you're facing a transition or feeling stuck in some way, get in touch: [travis@travisnorthcutt.com](mailto:travis@travisnorthcutt.com)
 
 ## My perspective on coaching
 
