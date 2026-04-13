@@ -1,30 +1,23 @@
 ---
-title: Ambition
-pubDate: 2024-03-15
+title: Mapping the ideaspace of ambition
+pubDate: 2026-04-13
 description: ""
-draft: true
 ---
 
-What is ambition?
+The ideaspace of ambition is largely underexplored and, crucially, undermapped.
 
-I'm not sure (which is [appropriate](https://travisnorthcutt.com/certainty)). But I think my views on ambition – what it is, what it means, what it looks like – are changing.
+Underexplored: there is likely much more to ambition — much more that it can encompass, describe, allow, empower, etc. than most people understand.
 
-I used to think "oh I'm not ambitious". Ambition, to, me, looked like someone who had a strong business/entrepreneurial/career/whatever drive. My wife Amanda [is ambitious](https://welevelupcreators.com/). She has a beautiful drive to create, to achieve, to accomplish.
+Undermapped: For however much ambition is or has been explored, it is definitionally less mapped. And the mapping is what is most legible and immediately useful (and thus impactful) to most people. Exploring and then mapping, and ~~most~~ importantly then widely disseminating that map, is what makes the ideaspace — the full ideaspace — of ambition inhabitable to many more people.
 
-When it comes to "traditional" career-y things, I just... don't. Sure, I want to do my work well, whatever that is. But I'm not driven to climb the ladder, start a big thing, etc. At least, not right now.
+So it is a responsibility, a gift to the commons, to humanity, for people inclined to explore this ideaspace, to also map it and publish those maps to the wider public.
 
-And honestly I've _tried_ to want those things, in the past. I've run more than one business, but they didn't make me feel alive.
+Ok so, exploring:
 
-So I've always assumed I must not be ambitious, and I've tried to convince myself that I'm ok with that. And, by those traditional definitions, sure, I'm ok with it.
+Ambition is typically understood as relating to career, job, money, etc. But ambition can be a descriptor of a person's posture ~~&~~ in almost any realm. Art, parenting, friendship, community, neighborliness, thinking, communicating, philosophy, etc. etc. etc.
 
-But I'm coming around to ambition not really meaning that at all. Or at least, meaning a lot more things than that. Because really, I _do have ambition_. I'm just figuring out it looks a little different than "normal" (???) ambition.
+Perhaps ambition could be best understood as the animating force of a person. Someone who exudes aliveness — who is irreversibly animated toward a purpose — maybe that person necessarily has ambition.
 
-My ambition is more like: I want to learn how to become who I am. I want to grow, and experience deep relationships and intimacy and beauty and knowledge and wisdom. I want to alter the world around me, to bend it toward love and kindness and goodness. I feel these things growing inside of me, starting to sprout and well up, and I'm excited and really quite a bit scared at what that means. Scared at what I'll need to do, how I'll need to go way outside my comfort zone, to embrace that ambition and actually, really, share it with the world.
+Does this mean that ambition is a necessary precursor to aliveness, to an animated life? Maybe. If so, I do suspect that there is no requirement that a person be conscious of that ambition — perhaps they even self-identify as "not ambitious" because they view ambition through the co-opted lens of career, material wealth, etc. that the word broadly evokes.
 
-Side note: none of this is dismissive of "normal" ambition. I deeply admire and respect people who have that drive, and I think that is crucial for our growth as humans, as a people, etc. It's what drives progress and innovation and prosperity. And people who have that drive are often sharing something with the world that helps other people in enormous ways (see my wife as an example), and particularly helps other people do more of what I'm talking about, makes it possible to share themselves more fully with the world.
-
-Ok, so, ambition: for me, it's... all those things I listed above. I think this is something that's been building for a while, and mostly I've been ignoring it because I thought/felt for whatever reason that it wasn't practical, that the realities of life meant I needed to focus elsewhere. But more and more it's starting to feel like this slowly but steadily growing force that can't be ignored. Maybe that's what the "normal" ambition/drive feels like to other people, too! Like... you just have to do this thing.
-
-So, my challenge/task/whatever, I guess, is to figure out what that looks like, in practice, for me. What is the thing I have to do? Right now it looks like writing, mostly, but surely that's not enough, or not all there is to it, right? I suppose my hope in writing this kind of thing is that hey, writing connects people, and people who are on a similar path, or maybe who have already been down this path, see me and what I'm saying will resonate, and then hey presto, connections.
-
-And if nothing else, word-vomiting all this out is awfully clarifying and motivating. Like, hey, I can actually say on the outside the things that are on the inside. I'll keep doing that and see what happens.
+So, why does this even matter? Is there benefit to be had by revising our societal understanding of what ambition can be? I suspect yes, because many see ambition as having a very positive connotation. If we can broaden the scope of what ambition might imply, then we can get people to apply that positive connotation to a wider range of net-good behaviors that will lead to an increase in human flourishing.
