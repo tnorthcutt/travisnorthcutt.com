@@ -1,5 +1,6 @@
 ---
 layout: ../layouts/NowLayout.astro
+description: "An aspirationally up-to-date snapshot of what Travis Northcutt is up to right now."
 ---
 
 # Now

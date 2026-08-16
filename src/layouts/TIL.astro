@@ -6,12 +6,14 @@ import PageLayout from "../layouts/PageLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import CommitHistory from "../components/CommitHistory.astro";
+import { excerpt } from "../utils/excerpt";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { body?: string };
 
 const path = Astro.url.pathname;
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
-const pageDescription = description || "";
+const { title, description, pubDate, updatedDate, heroImage, body } =
+  Astro.props;
+const pageDescription = description || excerpt(body) || SITE_DESCRIPTION;
 ---
 
 <PageLayout>
