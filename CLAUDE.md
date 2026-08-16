@@ -15,6 +15,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Formatting**: Use consistent indentation (2 spaces). Use meaningful variable names.
 - **Component Props**: Define Props type at the top of Astro components.
 - **Naming**: Use PascalCase for component filenames and camelCase for utilities.
-- **Colors**: Use the color palette defined in tailwind.config.mjs.
+- **Colors**: Use the color palette defined in the `@theme` block of src/styles/global.css.
 - **Error Handling**: Use TypeScript's strictNullChecks to prevent null reference errors.
 - **CSS Classes**: Use the class:list syntax for conditional classes in Astro components.

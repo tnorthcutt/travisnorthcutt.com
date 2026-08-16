@@ -16,6 +16,9 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            /* This page carries its own styles and no longer picks up Tailwind's
+               preflight, so the defaults it used to inherit are set explicitly. */
+            line-height: 1.5;
             background: #FFFCF0;
             color: #282726;
             display: flex;
@@ -93,6 +96,8 @@
         input {
             width: 100%;
             padding: 8px;
+            font-family: inherit;
+            line-height: inherit;
             font-size: 14px;
             border: 1px solid #CECDC3;
             border-radius: 5px;
@@ -103,6 +108,8 @@
         button {
             width: 100%;
             padding: 12px;
+            font-family: inherit;
+            line-height: inherit;
             font-size: 16px;
             border: none;
             border-radius: 5px;

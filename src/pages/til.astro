@@ -18,7 +18,8 @@ const posts = (await getCollection("til")).sort(
   <Fragment slot="main">
     <h1 class="text-3xl font-bold text-center">TILs</h1>
     <p class="text-xl">Small learnings:</p>
-    <hr class="my-4" />
+    {/* `!` needed since v4: prose's own `hr` rule now sorts after `my-4`. */}
+    <hr class="my-4!" />
     <section>
       <ul>
         {

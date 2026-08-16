@@ -1,4 +1,73 @@
 /*
+  Tailwind is imported in parts rather than as a single `@import "tailwindcss"`
+  so that the utilities land *unlayered*, like they did under Tailwind v3.
+
+  Under v3 this file was loaded after Tailwind's stylesheet and both were
+  unlayered, so plain specificity decided every conflict: `.prose :where(li)`
+  beat the `ul li` rule below, but `a:not(.unset)` beat `.prose :where(a)`.
+  Putting the utilities in `@layer utilities` (the v4 default) would flip all of
+  that at once, because unlayered CSS outranks any cascade layer regardless of
+  specificity. Keeping them unlayered preserves the original rendering.
+*/
+@layer theme, base;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" source(none);
+
+@plugin "@tailwindcss/typography";
+
+/* Mirrors the `content` globs of the former tailwind.config.mjs. */
+@source "../../src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";
+
+/*
+  `--color-*: initial` clears Tailwind's default palette so that only the colors
+  below exist, matching the former config which set `theme.colors` (a full
+  replacement) rather than `theme.extend.colors`.
+*/
+@theme {
+  --color-*: initial;
+
+  --color-base-black: #100f0f;
+  --color-base-950: #1c1b1a;
+  --color-base-900: #282726;
+  --color-base-850: #343331;
+  --color-base-800: #403e3c;
+  --color-base-700: #575653;
+  --color-base-600: #6f6e69;
+  --color-base-500: #878580;
+  --color-base-300: #b7b5ac;
+  --color-base-200: #cecdc3;
+  --color-base-150: #dad8ce;
+  --color-base-100: #e6e4d9;
+  --color-base-50: #f2f0e5;
+  --color-base-paper: #fffcf0;
+
+  --color-red: #af3029;
+  --color-red-light: #d14d41;
+
+  --color-orange: #bc5215;
+  --color-orange-light: #da702c;
+
+  --color-yellow: #ad8301;
+  --color-yellow-light: #d0a215;
+
+  --color-green: #66800b;
+  --color-green-light: #879a39;
+
+  --color-cyan: #24837b;
+  --color-cyan-light: #3aa99f;
+
+  --color-blue: #205ea6;
+  --color-blue-light: #4385be;
+
+  --color-purple: #5e409d;
+  --color-purple-light: #8b7ec8;
+
+  --color-magenta: #a02f6f;
+  --color-magenta-light: #ce5d97;
+}
+
+/*
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
