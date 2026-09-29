@@ -4,7 +4,8 @@ import PageLayout from "../../layouts/PageLayout.astro";
 
 type Setting = {
   result: string;
-  tempF: number;
+  // A single temperature or a range, in °F, e.g. "140" or "129–134".
+  temp: string;
   time: string;
   recommended?: boolean;
 };
@@ -12,6 +13,7 @@ type Setting = {
 type Food = {
   name: string;
   note?: string;
+  source: string;
   settings: Setting[];
 };
 
@@ -20,19 +22,33 @@ type Group = {
   foods: Food[];
 };
 
-// Times assume cuts about 1" thick; add roughly an hour per extra half inch.
+// Numbers follow Serious Eats' Food Lab guides, linked from each food.
 const groups: Group[] = [
   {
     title: "Steak",
     foods: [
       {
-        name: "Ribeye, strip, sirloin, filet",
-        note: "Pat dry and sear hard after the bath.",
+        name: "Ribeye, strip, sirloin",
+        note: "Times are for 1½–2\" steaks; 1\" or thinner can come out after 40 min. Keep medium-rare under 130°F to 2½ hr max.",
+        source: "https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide-steak",
         settings: [
-          { result: "Rare", tempF: 125, time: "1–3 hr" },
-          { result: "Medium-rare", tempF: 131, time: "1–4 hr", recommended: true },
-          { result: "Medium", tempF: 137, time: "1–4 hr" },
-          { result: "Medium-well", tempF: 145, time: "1–4 hr" },
+          { result: "Rare", temp: "120–128", time: "1–2½ hr" },
+          { result: "Medium-rare", temp: "129–134", time: "1–4 hr", recommended: true },
+          { result: "Medium", temp: "135–144", time: "1–4 hr" },
+          { result: "Medium-well", temp: "145–155", time: "1–3½ hr" },
+          { result: "Well-done", temp: "156+", time: "1–3 hr" },
+        ],
+      },
+      {
+        name: "Filet (tenderloin)",
+        note: "Lean, so it's best on the rare side. Times are for 1½–2\" steaks; 1\" or thinner can come out after 30 min.",
+        source: "https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide-steak",
+        settings: [
+          { result: "Rare", temp: "120–128", time: "45 min–2½ hr", recommended: true },
+          { result: "Medium-rare", temp: "129–134", time: "45 min–4 hr" },
+          { result: "Medium", temp: "135–144", time: "45 min–4 hr" },
+          { result: "Medium-well", temp: "145–155", time: "45 min–3½ hr" },
+          { result: "Well-done", temp: "156+", time: "1–3 hr" },
         ],
       },
     ],
@@ -42,18 +58,20 @@ const groups: Group[] = [
     foods: [
       {
         name: "Breast",
+        source: "https://www.seriouseats.com/the-food-lab-complete-guide-to-sous-vide-chicken-breast",
         settings: [
-          { result: "Very juicy, tender", tempF: 145, time: "1.5–4 hr", recommended: true },
-          { result: "Juicy, firmer", tempF: 150, time: "1–4 hr" },
-          { result: "Traditional", tempF: 160, time: "1–4 hr" },
+          { result: "Very soft and juicy", temp: "140", time: "1½–4 hr", recommended: true },
+          { result: "Tender, juicy; great cold", temp: "150", time: "1–4 hr" },
+          { result: "Traditional, firm", temp: "160", time: "1–4 hr" },
         ],
       },
       {
         name: "Thighs",
+        source: "https://www.seriouseats.com/crispy-sous-vide-chicken-thigh-recipe",
         settings: [
-          { result: "Firm, juicy", tempF: 150, time: "1–4 hr" },
-          { result: "Tender", tempF: 165, time: "1.5–4 hr", recommended: true },
-          { result: "Falling apart", tempF: 175, time: "3–5 hr" },
+          { result: "Very juicy, quite firm", temp: "150", time: "1–4 hr" },
+          { result: "Juicy, completely tender", temp: "165", time: "1–4 hr", recommended: true },
+          { result: "Falls off the bone", temp: "165", time: "4–8 hr" },
         ],
       },
     ],
@@ -63,24 +81,31 @@ const groups: Group[] = [
     foods: [
       {
         name: "Chops",
+        source: "https://www.seriouseats.com/sous-vide-pork-chops-recipe",
         settings: [
-          { result: "Pink, very juicy", tempF: 135, time: "1–4 hr" },
-          { result: "Rosy, juicy", tempF: 140, time: "1–4 hr", recommended: true },
-          { result: "Medium", tempF: 150, time: "1–4 hr" },
+          { result: "Rare", temp: "130", time: "1–4 hr" },
+          { result: "Medium-rare", temp: "140", time: "1–4 hr", recommended: true },
+          { result: "Medium-well", temp: "150", time: "1–4 hr" },
+          { result: "Well-done", temp: "160", time: "1–4 hr" },
         ],
       },
       {
         name: "Tenderloin",
+        source: "https://www.seriouseats.com/sous-vide-pork-tenderloin-recipe",
         settings: [
-          { result: "Rosy, juicy", tempF: 140, time: "1.5–4 hr", recommended: true },
-          { result: "Medium", tempF: 150, time: "1.5–4 hr" },
+          { result: "Medium-rare", temp: "130", time: "1–4 hr" },
+          { result: "Medium", temp: "140", time: "1–4 hr", recommended: true },
+          { result: "Medium-well", temp: "150", time: "1–4 hr" },
+          { result: "Well-done", temp: "160", time: "1–4 hr" },
         ],
       },
       {
         name: "Shoulder",
+        source: "https://www.seriouseats.com/sous-vide-carnitas-crispy-mexican-style-pulled-pork-recipe",
         settings: [
-          { result: "Sliceable", tempF: 155, time: "18–24 hr" },
-          { result: "Pulled", tempF: 165, time: "18–24 hr", recommended: true },
+          { result: "Tender slabs, not shreddable", temp: "145", time: "24–36 hr" },
+          { result: "Easy to shred", temp: "165", time: "12–24 hr", recommended: true },
+          { result: "Traditional pulled", temp: "185", time: "8–16 hr" },
         ],
       },
     ],
@@ -98,8 +123,8 @@ const groups: Group[] = [
     <p class="back"><a href="/tools">&larr; Tools</a></p>
     <h1 class="text-3xl font-bold text-center">Sous vide times &amp; temps</h1>
     <p>
-      Times assume cuts about 1" thick; add roughly an hour per extra half
-      inch. <span class="pick">★</span> marks a good default.
+      Times and temps from Serious Eats' Food Lab guides. <span class="pick">★</span>&nbsp;marks a
+      good default.
     </p>
 
     <nav class="jump" aria-label="Jump to section">
@@ -131,12 +156,15 @@ const groups: Group[] = [
                           <span class="pick" aria-label="recommended"> ★</span>
                         )}
                       </td>
-                      <td class="num temp">{setting.tempF}°F</td>
+                      <td class="num temp">{setting.temp}°F</td>
                       <td class="num">{setting.time}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+              <p class="source">
+                <a href={food.source}>Source</a>
+              </p>
             </div>
           ))}
         </section>
@@ -172,6 +200,12 @@ const groups: Group[] = [
     font-size: 1rem;
   }
 
+  .source {
+    margin: 0.25rem 0 0;
+    text-align: right;
+    font-size: 0.85rem;
+  }
+
   /* Fixed layout keeps the columns aligned from one table to the next. */
   table {
     margin-top: 0.5rem;
@@ -180,11 +214,11 @@ const groups: Group[] = [
   }
 
   th:nth-child(2) {
-    width: 6rem;
+    width: 7.5rem;
   }
 
   th:nth-child(3) {
-    width: 6.5rem;
+    width: 7rem;
   }
 
   th {
@@ -195,13 +229,31 @@ const groups: Group[] = [
 
   .num {
     text-align: right;
-    white-space: nowrap;
   }
 
   .temp {
+    white-space: nowrap;
     font-weight: bold;
     font-size: 1.2rem;
     font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 480px) {
+    th:nth-child(2) {
+      width: 5.5rem;
+    }
+
+    th:nth-child(3) {
+      width: 5rem;
+    }
+
+    table {
+      font-size: 0.95rem;
+    }
+
+    .temp {
+      font-size: 1rem;
+    }
   }
 
   tr.recommended td {
