@@ -1,0 +1,214 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+type Setting = {
+  result: string;
+  tempF: number;
+  time: string;
+  recommended?: boolean;
+};
+
+type Food = {
+  name: string;
+  note?: string;
+  settings: Setting[];
+};
+
+type Group = {
+  title: string;
+  foods: Food[];
+};
+
+// Times assume cuts about 1" thick; add roughly an hour per extra half inch.
+const groups: Group[] = [
+  {
+    title: "Steak",
+    foods: [
+      {
+        name: "Ribeye, strip, sirloin, filet",
+        note: "Pat dry and sear hard after the bath.",
+        settings: [
+          { result: "Rare", tempF: 125, time: "1–3 hr" },
+          { result: "Medium-rare", tempF: 131, time: "1–4 hr", recommended: true },
+          { result: "Medium", tempF: 137, time: "1–4 hr" },
+          { result: "Medium-well", tempF: 145, time: "1–4 hr" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Chicken",
+    foods: [
+      {
+        name: "Breast",
+        settings: [
+          { result: "Very juicy, tender", tempF: 145, time: "1.5–4 hr", recommended: true },
+          { result: "Juicy, firmer", tempF: 150, time: "1–4 hr" },
+          { result: "Traditional", tempF: 160, time: "1–4 hr" },
+        ],
+      },
+      {
+        name: "Thighs",
+        settings: [
+          { result: "Firm, juicy", tempF: 150, time: "1–4 hr" },
+          { result: "Tender", tempF: 165, time: "1.5–4 hr", recommended: true },
+          { result: "Falling apart", tempF: 175, time: "3–5 hr" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Pork",
+    foods: [
+      {
+        name: "Chops",
+        settings: [
+          { result: "Pink, very juicy", tempF: 135, time: "1–4 hr" },
+          { result: "Rosy, juicy", tempF: 140, time: "1–4 hr", recommended: true },
+          { result: "Medium", tempF: 150, time: "1–4 hr" },
+        ],
+      },
+      {
+        name: "Tenderloin",
+        settings: [
+          { result: "Rosy, juicy", tempF: 140, time: "1.5–4 hr", recommended: true },
+          { result: "Medium", tempF: 150, time: "1.5–4 hr" },
+        ],
+      },
+      {
+        name: "Shoulder",
+        settings: [
+          { result: "Sliceable", tempF: 155, time: "18–24 hr" },
+          { result: "Pulled", tempF: 165, time: "18–24 hr", recommended: true },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<PageLayout>
+  <BaseHead
+    title="Sous Vide Times & Temps | Travis Northcutt"
+    description="Sous vide times and temperatures for steak, chicken, and pork."
+    slot="meta"
+  />
+  <Fragment slot="main">
+    <p class="back"><a href="/tools">&larr; Tools</a></p>
+    <h1 class="text-3xl font-bold text-center">Sous vide times &amp; temps</h1>
+    <p>
+      Times assume cuts about 1" thick; add roughly an hour per extra half
+      inch. <span class="pick">★</span> marks a good default.
+    </p>
+
+    <nav class="jump" aria-label="Jump to section">
+      {groups.map((group) => <a href={`#${group.title.toLowerCase()}`}>{group.title}</a>)}
+    </nav>
+
+    {
+      groups.map((group) => (
+        <section id={group.title.toLowerCase()}>
+          <h2>{group.title}</h2>
+          {group.foods.map((food) => (
+            <div class="food">
+              <h3>{food.name}</h3>
+              {food.note && <p class="note">{food.note}</p>}
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Result</th>
+                    <th scope="col" class="num">Temp</th>
+                    <th scope="col" class="num">Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {food.settings.map((setting) => (
+                    <tr class:list={{ recommended: setting.recommended }}>
+                      <td>
+                        {setting.result}
+                        {setting.recommended && (
+                          <span class="pick" aria-label="recommended"> ★</span>
+                        )}
+                      </td>
+                      <td class="num temp">{setting.tempF}°F</td>
+                      <td class="num">{setting.time}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </section>
+      ))
+    }
+  </Fragment>
+</PageLayout>
+
+<style>
+  .back {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .jump {
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  h2 {
+    border-bottom: 1px solid var(--color-base-150);
+    padding-bottom: 0.25rem;
+  }
+
+  .food h3 {
+    margin-bottom: 0.25rem;
+  }
+
+  .note {
+    margin: 0 0 0.5rem;
+    color: var(--color-base-600);
+    font-size: 1rem;
+  }
+
+  /* Fixed layout keeps the columns aligned from one table to the next. */
+  table {
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    table-layout: fixed;
+  }
+
+  th:nth-child(2) {
+    width: 6rem;
+  }
+
+  th:nth-child(3) {
+    width: 6.5rem;
+  }
+
+  th {
+    color: var(--color-base-600);
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+
+  .num {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .temp {
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  tr.recommended td {
+    background: var(--color-base-50);
+  }
+
+  .pick {
+    color: var(--color-orange);
+  }
+</style>
