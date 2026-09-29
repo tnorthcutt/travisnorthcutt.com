@@ -1,0 +1,56 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+type Tool = {
+  href: string;
+  title: string;
+  description: string;
+};
+
+// Add new tools here; the list renders in this order.
+const tools: Tool[] = [
+  {
+    href: "/tools/wifi-qr",
+    title: "Wi-Fi QR code generator",
+    description:
+      "Make a QR code guests can scan to join your Wi-Fi. Runs entirely in your browser.",
+  },
+];
+---
+
+<PageLayout>
+  <BaseHead
+    title="Tools | Travis Northcutt"
+    description="Small, handy tools I've built."
+    slot="meta"
+  />
+  <Fragment slot="main">
+    <h1 class="text-3xl font-bold text-center">Tools</h1>
+    {/* `!` needed since v4: prose's own `hr` rule now sorts after `my-4`. */}
+    <hr class="my-4!" />
+    <ul>
+      {
+        tools.map((tool) => (
+          <li>
+            <a href={tool.href}>{tool.title}</a>
+            <p class="description">{tool.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Fragment>
+</PageLayout>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  .description {
+    margin: 0.25rem 0 0;
+    color: var(--color-base-600);
+    font-size: 1rem;
+  }
+</style>

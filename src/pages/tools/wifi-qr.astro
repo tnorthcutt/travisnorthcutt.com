@@ -1,0 +1,355 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
+---
+
+<PageLayout>
+  <BaseHead
+    title="Wi-Fi QR Code Generator | Travis Northcutt"
+    description="Make a QR code guests can scan to join your Wi-Fi. Runs entirely in your browser."
+    slot="meta"
+  />
+  <Fragment slot="main">
+    <p class="back"><a href="/tools">&larr; Tools</a></p>
+    <h1 class="text-3xl font-bold text-center">Wi-Fi QR code generator</h1>
+    <p>
+      Scan the code with a phone camera to join the network. Everything happens
+      in your browser; your network name and password are never sent anywhere.
+    </p>
+
+    <div class="tool">
+      <form id="wifi-form" class="fields" autocomplete="off">
+        <label>
+          Network name (SSID)
+          <input id="ssid" name="ssid" type="text" required spellcheck="false" />
+        </label>
+
+        <label>
+          Security
+          <select id="security" name="security">
+            <option value="WPA" selected>WPA/WPA2/WPA3</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">None (open network)</option>
+          </select>
+        </label>
+
+        <label id="password-field">
+          Password
+          <span class="password-row">
+            <input id="password" name="password" type="password" spellcheck="false" />
+            <button id="toggle-password" type="button">Show</button>
+          </span>
+        </label>
+
+        <label class="checkbox">
+          <input id="hidden" name="hidden" type="checkbox" />
+          Hidden network
+        </label>
+
+        <fieldset class="print-options">
+          <legend>Print options</legend>
+          <label>
+            Title
+            <input id="title" name="title" type="text" value="Scan to join Wi-Fi" />
+          </label>
+          <label class="checkbox">
+            <input id="show-ssid" name="show-ssid" type="checkbox" checked />
+            Show network name
+          </label>
+          <label class="checkbox">
+            <input id="show-password" name="show-password" type="checkbox" checked />
+            Show password
+          </label>
+        </fieldset>
+      </form>
+
+      <div class="output">
+        <div id="print-area">
+          <p id="print-title" class="print-title"></p>
+          <canvas id="qr" width="256" height="256" aria-label="Wi-Fi QR code"></canvas>
+          <p id="caption-ssid" class="caption"></p>
+          <p id="caption-password" class="caption"></p>
+        </div>
+        <p id="placeholder" class="placeholder">Enter a network name to generate a code.</p>
+        <div class="actions">
+          <button id="download" type="button" disabled>Download PNG</button>
+          <button id="print" type="button" disabled>Print</button>
+        </div>
+      </div>
+    </div>
+  </Fragment>
+</PageLayout>
+
+<script>
+  import QRCode from "qrcode";
+
+  type Security = "WPA" | "WEP" | "nopass";
+
+  const form = document.getElementById("wifi-form") as HTMLFormElement;
+  const ssidInput = document.getElementById("ssid") as HTMLInputElement;
+  const securitySelect = document.getElementById("security") as HTMLSelectElement;
+  const passwordField = document.getElementById("password-field") as HTMLElement;
+  const passwordInput = document.getElementById("password") as HTMLInputElement;
+  const togglePassword = document.getElementById("toggle-password") as HTMLButtonElement;
+  const hiddenInput = document.getElementById("hidden") as HTMLInputElement;
+  const canvas = document.getElementById("qr") as HTMLCanvasElement;
+  const titleInput = document.getElementById("title") as HTMLInputElement;
+  const showSsidInput = document.getElementById("show-ssid") as HTMLInputElement;
+  const showPasswordInput = document.getElementById("show-password") as HTMLInputElement;
+  const printTitle = document.getElementById("print-title") as HTMLElement;
+  const captionSsid = document.getElementById("caption-ssid") as HTMLElement;
+  const captionPassword = document.getElementById("caption-password") as HTMLElement;
+  const placeholder = document.getElementById("placeholder") as HTMLElement;
+  const downloadButton = document.getElementById("download") as HTMLButtonElement;
+  const printButton = document.getElementById("print") as HTMLButtonElement;
+
+  // The Wi-Fi QR format treats \ ; , : and " as special, so they're backslash-escaped.
+  const escapeValue = (value: string) => value.replace(/([\\;,:"])/g, "\\$1");
+
+  function buildPayload(ssid: string, security: Security, password: string, hidden: boolean) {
+    let payload = `WIFI:T:${security};S:${escapeValue(ssid)};`;
+    if (security !== "nopass") payload += `P:${escapeValue(password)};`;
+    if (hidden) payload += "H:true;";
+    return `${payload};`;
+  }
+
+  async function render() {
+    const ssid = ssidInput.value;
+    const security = securitySelect.value as Security;
+    const hasCode = ssid.length > 0;
+
+    const title = titleInput.value.trim();
+    const password = passwordInput.value;
+
+    passwordField.hidden = security === "nopass";
+    // The password toggle means nothing for an open network.
+    showPasswordInput.disabled = security === "nopass";
+    canvas.hidden = !hasCode;
+    printTitle.hidden = !hasCode || !title;
+    captionSsid.hidden = !hasCode || !showSsidInput.checked;
+    captionPassword.hidden =
+      !hasCode || !showPasswordInput.checked || security === "nopass" || !password;
+    placeholder.hidden = hasCode;
+    downloadButton.disabled = !hasCode;
+    printButton.disabled = !hasCode;
+    if (!hasCode) return;
+
+    const payload = buildPayload(ssid, security, password, hiddenInput.checked);
+    await QRCode.toCanvas(canvas, payload, { width: 256, margin: 2, errorCorrectionLevel: "M" });
+    printTitle.textContent = title;
+    captionSsid.textContent = `Network: ${ssid}`;
+    captionPassword.textContent = `Password: ${password}`;
+  }
+
+  form.addEventListener("input", render);
+  form.addEventListener("submit", (event) => event.preventDefault());
+
+  togglePassword.addEventListener("click", () => {
+    const showing = passwordInput.type === "text";
+    passwordInput.type = showing ? "password" : "text";
+    togglePassword.textContent = showing ? "Show" : "Hide";
+  });
+
+  downloadButton.addEventListener("click", async () => {
+    const payload = buildPayload(
+      ssidInput.value,
+      securitySelect.value as Security,
+      passwordInput.value,
+      hiddenInput.checked
+    );
+    const link = document.createElement("a");
+    link.href = await QRCode.toDataURL(payload, { width: 1024, margin: 2, errorCorrectionLevel: "M" });
+    link.download = `wifi-${ssidInput.value.replace(/[^\w-]+/g, "_") || "network"}.png`;
+    link.click();
+  });
+
+  printButton.addEventListener("click", () => window.print());
+
+  render();
+</script>
+
+<style>
+  .back {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .tool {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .tool {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  label.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  label[hidden] {
+    display: none;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-base-300);
+    border-radius: 0.375rem;
+    background: white;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .password-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-base-300);
+    border-radius: 0.375rem;
+    background: var(--color-base-50);
+    color: var(--color-base-900);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  button:hover:not(:disabled) {
+    background: var(--color-base-100);
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  #print-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  canvas {
+    width: 256px;
+    height: 256px;
+    border: 1px solid var(--color-base-150);
+    border-radius: 0.375rem;
+  }
+
+  canvas[hidden],
+  .print-title[hidden],
+  .caption[hidden],
+  .placeholder[hidden] {
+    display: none;
+  }
+
+  .print-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0.5rem 0 0;
+    padding: 0.75rem 1rem 1rem;
+    border: 1px solid var(--color-base-150);
+    border-radius: 0.375rem;
+  }
+
+  .print-options legend {
+    padding: 0 0.25rem;
+    color: var(--color-base-600);
+  }
+
+  label.checkbox:has(input:disabled) {
+    opacity: 0.5;
+  }
+
+  .print-title {
+    margin: 0 0 0.5rem;
+    max-width: 256px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .caption {
+    margin: 0.25rem 0 0;
+    max-width: 256px;
+    text-align: center;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+
+  .placeholder {
+    width: 256px;
+    min-height: 256px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    border: 1px dashed var(--color-base-300);
+    border-radius: 0.375rem;
+    color: var(--color-base-600);
+    font-size: 1rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  @media print {
+    :global(body) :global(*) {
+      visibility: hidden;
+    }
+    #print-area,
+    #print-area * {
+      visibility: visible;
+    }
+    #print-area {
+      position: absolute;
+      inset: 0;
+      justify-content: center;
+    }
+    canvas {
+      border: none;
+    }
+    .print-title {
+      font-size: 2rem;
+      max-width: none;
+    }
+    .caption {
+      font-size: 1.25rem;
+      max-width: none;
+    }
+  }
+</style>
